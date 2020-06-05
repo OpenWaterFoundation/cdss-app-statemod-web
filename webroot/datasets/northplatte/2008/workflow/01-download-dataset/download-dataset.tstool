@@ -1,0 +1,24 @@
+# Download and unzip CDSS StateCU and StateMod North Platte datasets
+#
+# =====================================================================
+# Download the CDSS North Platte StateCU 2008 dataset from:
+#     https://www.colorado.gov/pacific/cdss/consumptive-use-statecu
+# No North Platte StateCU dataset is provided on the website.
+#
+# =====================================================================
+# Download the CDSS North Platte StateMod 2008 dataset from:
+#     https://www.colorado.gov/pacific/cdss/surface-water-statemod
+WebGet(URI="https://dnrweblink.state.co.us/cwcbsearch/ElectronicFile.aspx?docid=168382&dbid=0",LocalFile="../../downloads/NorthPlatteRiverModel.exe")
+# Unzip to the main year version folder.
+# The North Platte dataset is distributed in a self-extracting executable so must run it and save the output.
+# It defaults to installing in the NP2008 folder (creates this folder) in the folder entered in the WinZip.
+# TODO smalers 2020-06-04 need a way to unzip from the command line.
+# "Unzip to folder" field.  Therefore move the subfolders in NP2008 to the 2008 folder.
+#UnzipFile(InputFile="..\..\downloads\NorthPlatteRiverModel.exe",OutputFolder="..\..\..\2008")
+#
+# =====================================================================
+# Download the StateMod executable program that is compatible with 2008 dataset from:
+#     https://www.colorado.gov/pacific/cdss/statemod
+# Copy to the 'bin/' folder for use in modeling.
+WebGet(URI="https://dnrweblink.state.co.us/cwcb/0/edoc/200078/StateMod_Model_15.exe?searchid=78fa8e82-a237-49de-8a3b-6913e21d75bb",LocalFile="../../downloads/StateMod_Model_15.exe")
+CopyFile(InputFile="../../downloads/StateMod_Model_15.exe",OutputFile="../../bin/StateMod_Model_15.exe")

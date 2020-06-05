@@ -1,0 +1,22 @@
+# Download and unzip CDSS StateCU and StateMod White datasets
+#
+# =====================================================================
+# Download the CDSS White StateCU 2015 dataset from:
+#     https://www.colorado.gov/pacific/cdss/consumptive-use-statecu
+WebGet(URI="https://dnrweblink.state.co.us/cwcb/0/doc/199989/Electronic.aspx?searchid=625e6e08-1aa8-4afc-a3a3-2541a4bb9a2f",LocalFile="../../downloads/wm2015_StateCU.zip")
+# Unzip to the main year version folder.
+UnzipFile(InputFile="..\..\downloads\wm2015_StateCU.zip",OutputFolder="..\..\..\2015")
+#
+# =====================================================================
+# Download the CDSS White StateMod 2015 dataset from:
+#     https://www.colorado.gov/pacific/cdss/surface-water-statemod
+WebGet(URI="https://dnrweblink.state.co.us/cwcb/0/doc/200071/Electronic.aspx?searchid=d5bc4398-4659-42df-ab50-4abcf199b938",LocalFile="../../downloads/wm2015_StateMod.zip")
+# Unzip to the main year version folder.
+UnzipFile(InputFile="..\..\downloads\wm2015_StateMod.zip",OutputFolder="..\..\..\2015")
+#
+# =====================================================================
+# Download the StateMod executable program that is compatible with 2015 dataset from:
+#     https://www.colorado.gov/pacific/cdss/statemod
+# Copy to the 'bin/' folder for use in modeling.
+WebGet(URI="https://dnrweblink.state.co.us/cwcb/0/edoc/200078/StateMod_Model_15.exe?searchid=78fa8e82-a237-49de-8a3b-6913e21d75bb",LocalFile="../../downloads/StateMod_Model_15.exe")
+CopyFile(InputFile="../../downloads/StateMod_Model_15.exe",OutputFile="../../bin/StateMod_Model_15.exe")

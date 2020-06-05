@@ -1,0 +1,270 @@
+# Indicate which working files should be ignored and not committed to the repository
+
+# Ignore vi editor swap files
+
+*.swp
+*.swo
+
+# Ignore all log files
+
+*.log
+
+# Ignore Microsoft Office temporary files
+
+~$*
+
+# Ignore executable files, such as StateCU and StateMod executables in "bin" folder
+
+*.exe
+
+# Ignore all downloaded and dynamically generated files.
+# - README files are used as placholders in some folders to enforce the folder structure.
+# - the modeling folders will be dynamically created when datasets are downloaded
+
+# Colorado 2015 dataset
+
+/webroot/datasets/colorado/2015/bin/*
+!/webroot/datasets/colorado/2015/bin/README.md
+/webroot/datasets/colorado/2015/ClimateCU/
+/webroot/datasets/colorado/2015/Crops/
+/webroot/datasets/colorado/2015/Diversions/
+/webroot/datasets/colorado/2015/DiversionsCU/
+/webroot/datasets/colorado/2015/DocsCU/
+/webroot/datasets/colorado/2015/DocsSW/
+/webroot/datasets/colorado/2015/downloads/*
+!/webroot/datasets/colorado/2015/downloads/README.md
+/webroot/datasets/colorado/2015/Instream/
+/webroot/datasets/colorado/2015/LocationCU/
+/webroot/datasets/colorado/2015/Network/
+/webroot/datasets/colorado/2015/Reservoirs/
+/webroot/datasets/colorado/2015/StateCU/
+/webroot/datasets/colorado/2015/StateMod/
+/webroot/datasets/colorado/2015/StreamSW/
+/webroot/datasets/colorado/2015/web/*
+!/webroot/datasets/colorado/2015/web/README.md
+
+# Gunnison 2015 dataset
+
+/webroot/datasets/gunnison/2015/bin/*
+!/webroot/datasets/gunnison/2015/bin/README.md
+/webroot/datasets/gunnison/2015/ClimateCU/
+/webroot/datasets/gunnison/2015/Crops/
+/webroot/datasets/gunnison/2015/Diversions/
+/webroot/datasets/gunnison/2015/DiversionsCU/
+/webroot/datasets/gunnison/2015/DocCU/
+/webroot/datasets/gunnison/2015/DocSW/
+/webroot/datasets/gunnison/2015/downloads/*
+!/webroot/datasets/gunnison/2015/downloads/README.md
+/webroot/datasets/gunnison/2015/Instream/
+/webroot/datasets/gunnison/2015/LocationCU/
+/webroot/datasets/gunnison/2015/Network/
+/webroot/datasets/gunnison/2015/Reservoirs/
+/webroot/datasets/gunnison/2015/StateCU/
+/webroot/datasets/gunnison/2015/StateMod/
+/webroot/datasets/gunnison/2015/StreamSW/
+/webroot/datasets/gunnison/2015/web/*
+!/webroot/datasets/gunnison/2015/web/README.md
+
+# North Platte 2008 dataset
+
+/webroot/datasets/northplatte/2008/bin/*
+!/webroot/datasets/northplatte/2008/bin/README.md
+/webroot/datasets/northplatte/2008/Calibration/
+/webroot/datasets/northplatte/2008/ClimateCU/
+/webroot/datasets/northplatte/2008/Crops/
+/webroot/datasets/northplatte/2008/Diversions/
+/webroot/datasets/northplatte/2008/DocCU/
+/webroot/datasets/northplatte/2008/DocSW/
+/webroot/datasets/northplatte/2008/downloads/*
+!/webroot/datasets/northplatte/2008/downloads/README.md
+/webroot/datasets/northplatte/2008/Instream/
+/webroot/datasets/northplatte/2008/LocationCU/
+/webroot/datasets/northplatte/2008/Network/
+/webroot/datasets/northplatte/2008/Reservoirs/
+/webroot/datasets/northplatte/2008/StateCU/
+/webroot/datasets/northplatte/2008/StateMod/
+/webroot/datasets/northplatte/2008/StreamSW/
+/webroot/datasets/northplatte/2008/web/*
+!/webroot/datasets/northplatte/2008/web/README.md
+
+# San Juan 2015 dataset
+
+/webroot/datasets/sanjuan/2015/bin/*
+!/webroot/datasets/sanjuan/2015/bin/README.md
+/webroot/datasets/sanjuan/2015/ClimateCU/
+/webroot/datasets/sanjuan/2015/Crops/
+/webroot/datasets/sanjuan/2015/Diversions/
+/webroot/datasets/sanjuan/2015/DiversionsCU/
+/webroot/datasets/sanjuan/2015/DocsCU/
+/webroot/datasets/sanjuan/2015/DocsSW/
+/webroot/datasets/sanjuan/2015/downloads/*
+!/webroot/datasets/sanjuan/2015/downloads/README.md
+/webroot/datasets/sanjuan/2015/Instream/
+/webroot/datasets/sanjuan/2015/LocationCU/
+/webroot/datasets/sanjuan/2015/Network/
+/webroot/datasets/sanjuan/2015/Reservoirs/
+/webroot/datasets/sanjuan/2015/StateCU/
+/webroot/datasets/sanjuan/2015/StateMod/
+/webroot/datasets/sanjuan/2015/StreamSW/
+/webroot/datasets/sanjuan/2015/web/*
+!/webroot/datasets/sanjuan/2015/web/README.md
+
+# South Platte 2016 dataset
+
+/webroot/datasets/southplatte/2016/bin/*
+!/webroot/datasets/southplatte/2016/bin/README.md
+/webroot/datasets/southplatte/2016/downloads/*
+!/webroot/datasets/southplatte/2016/downloads/README.md
+/webroot/datasets/southplatte/2016/StateCU/
+/webroot/datasets/southplatte/2016/StateMod/
+/webroot/datasets/southplatte/2016/web/*
+!/webroot/datasets/southplatte/2016/web/README.md
+
+# White 2015 dataset
+
+/webroot/datasets/white/2015/bin/*
+!/webroot/datasets/white/2015/bin/README.md
+/webroot/datasets/white/2015/ClimateCU/
+/webroot/datasets/white/2015/Crops/
+/webroot/datasets/white/2015/Diversions/
+/webroot/datasets/white/2015/DiversionsCU/
+/webroot/datasets/white/2015/DocCU/
+/webroot/datasets/white/2015/DocSW/
+/webroot/datasets/white/2015/downloads/*
+!/webroot/datasets/white/2015/downloads/README.md
+/webroot/datasets/white/2015/Instream/
+/webroot/datasets/white/2015/LocationCU/
+/webroot/datasets/white/2015/Network/
+/webroot/datasets/white/2015/Reservoirs/
+/webroot/datasets/white/2015/StateCU/
+/webroot/datasets/white/2015/StateMod/
+/webroot/datasets/white/2015/StreamSW/
+/webroot/datasets/white/2015/web/*
+!/webroot/datasets/white/2015/web/README.md
+
+# Yampa 2015 dataset
+
+/webroot/datasets/yampa/2015/bin/*
+!/webroot/datasets/yampa/2015/bin/README.md
+/webroot/datasets/yampa/2015/ClimateCU/
+/webroot/datasets/yampa/2015/Crops/
+/webroot/datasets/yampa/2015/Diversions/
+/webroot/datasets/yampa/2015/DiversionsCU/
+/webroot/datasets/yampa/2015/DocsCU/
+/webroot/datasets/yampa/2015/DocsSW/
+/webroot/datasets/yampa/2015/downloads/*
+!/webroot/datasets/yampa/2015/downloads/README.md
+/webroot/datasets/yampa/2015/Instream/
+/webroot/datasets/yampa/2015/LocationCU/
+/webroot/datasets/yampa/2015/Network/
+/webroot/datasets/yampa/2015/Reservoirs/
+/webroot/datasets/yampa/2015/StateCU/
+/webroot/datasets/yampa/2015/StateMod/
+/webroot/datasets/yampa/2015/StreamSW/
+/webroot/datasets/yampa/2015/web/*
+!/webroot/datasets/yampa/2015/web/README.md
+
+################## Start StateCU Files #######################
+#
+# Ignore all files downloaded
+# - only save in the repository the source files used to generate model input files
+
+#StateCU/*.cds
+#StateCU/*.cli
+#StateCU/*.ddh
+#StateCU/*.fd
+#StateCU/*.ipy
+#StateCU/*.prc
+#StateCU/*.str
+#StateCU/*.tem
+
+# Ignore all StateCU binary and report output files
+# - these files are created by StateCU
+# - always ignore in case other ignored folders are not properly figured
+
+season*.csv
+*.BD1
+*.cir
+*.ddc
+*.def
+*.dwb
+*.obc
+*.sum
+*.swb
+*.wsl
+
+################## End StateCU Files #######################
+
+################## Start StateMod Files #######################
+# Ignore dynamic files written to StateMod folder
+# - some of the following could be made more general
+
+#Diversions/58_SteamboatWells_B.stm
+#Diversions/58_SteamboatWells_H.stm
+#Diversions/5402068.stm
+#Diversions/Future_Demands.stm
+#Diversions/5700512_Hist.stm
+#Diversions/M&I_Baseline.stm
+#Diversions/WYD.stm
+
+#Diversions/ym2015_dds.dds
+#Diversions/ym2015_ddh.dds
+
+#StateMod/*.rin
+#StateMod/*.ddh
+#StateMod/*.ddr
+#StateMod/*.ddr
+#StateMod/*.dds
+#StateMod/*.ddm
+#StateMod/*.eom
+#StateMod/*.ifs
+#StateMod/*.ifr
+#StateMod/*.ifa
+#StateMod/*.ipy
+#StateMod/*.iwr
+#StateMod/*.rer
+#StateMod/*.rer
+#StateMod/*.res
+#StateMod/*.res
+#StateMod/*.rih
+#StateMod/*.ris
+#StateMod/*.rib
+#StateMod/*.tar
+#StateMod/*.tar
+#StateMod/*.tar
+
+# Ignore all StateMod binary and report output files
+# - these files are created by StateMod
+# - always ignore in case other ignored folders are not properly figured
+*.chk
+*.tmp
+fort.*
+*.b43
+*.b44
+*.b45
+*.b47
+*.b67
+*.b68
+*.xbe
+*.xbg
+*.xbi
+*.xbm
+*.xca
+*.xcb
+*.xcd
+*.xci
+*.xcw
+*.xdd
+*.xgn
+*.xir
+*.xop
+*.xou
+*.xpl
+*.xre
+*.xrh
+*.xri
+*.xss
+*.xtb
+*.xwr
+
+################## End StateMod Files #######################

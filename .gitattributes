@@ -1,0 +1,14 @@
+# Git repository global properties
+
+# Use end-of-line consistent with the native system, but newlines in the repository
+
+*	text=auto
+
+# Indicate binary files to help Git software handle properly
+
+*.doc	binary
+*.docx	binary
+*.png	binary
+*.jpg	binary
+*.jpeg	binary
+*.xlsx	binary
