@@ -1,0 +1,136 @@
+#
+# Split StateMod input files time series into separate files, one time series per file.
+#
+# Set folders as properties to simplfify commands.
+# Location of StateMod files.
+SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
+# Name of the dataset, which is the base name for data files.
+SetProperty(PropertyName="DatasetName",PropertyType=String,PropertyValue="cm2015")
+# Historical run scenario, typically H or H2, used to modify dataset filenames
+#====================================
+# CU Location files
+#
+SetProperty(PropertyName="WebCULocationsDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/culocations")
+CreateFolder(Folder="${WebCULocationsDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# CU locations - irrigation practice, yearly (ipy)
+SetDebugLevel(LogFileLevel=10)
+ReadStateCU(InputFile="${StateModFolder}/${DatasetName}.ipy")
+SetDebugLevel(ScreenLevel=0,LogFileLevel=0)
+CopyTimeSeriesPropertiesToTable(TableID="ipy_Table",TableTSIDColumn="TSID")
+For(Name="ipy_Table",IteratorProperty="TSID",TableID="ipy_Table",TableColumn="TSID")
+# TODO smalers 2020-06-06 StateMod does not have an annual time series format
+# WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebCULocationsDataFolder}/${TSID}.stm")
+EndFor(Name="ipy_Table")
+#
+# CU locations - irrigation practice, yearly, baseline (ipy)
+ReadStateCU(InputFile="${StateModFolder}/${DatasetName}B.ipy")
+CopyTimeSeriesPropertiesToTable(TableID="Bipy_Table",TableTSIDColumn="TSID")
+For(Name="Bipy_Table",IteratorProperty="TSID",TableID="Bipy_Table",TableColumn="TSID")
+# TODO smalers 2020-06-06 StateMod does not have an annual time series format
+# WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebCULocationsDataFolder}/${TSID}.stm")
+EndFor(Name="Bipy_Table")
+#
+# CU locations - irrigation water requirement, monthly, baseline (iwr)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}B.iwr",Alias="%L.StateMod.IrrigationWaterRequirement.Month.B")
+CopyTimeSeriesPropertiesToTable(TableID="Biwr_Table",TableTSIDColumn="TSID")
+For(Name="Biwr_Table",IteratorProperty="TSID",TableID="Biwr_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebCULocationsDataFolder}/${TSID}.stm")
+EndFor(Name="Biwr_Table")
+#====================================
+# Diversion station files
+#
+SetProperty(PropertyName="WebDiversionsDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/diversions")
+CreateFolder(Folder="${WebDiversionsDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Diversion - historical diversions, monthly (ddh)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}.ddh",Alias="%L.StateMod.DivTotal.Month")
+CopyTimeSeriesPropertiesToTable(TableID="ddh_Table",TableTSIDColumn="TSID")
+For(Name="ddh_Table",IteratorProperty="TSID",TableID="ddh_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebDiversionsDataFolder}/${TSID}.stm")
+EndFor(Name="ddh_Table")
+#
+# Diversion - demand, monthly, baseline (B.ddm)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}B.ddm",Alias="%L.StateMod.Demand.Month.B")
+CopyTimeSeriesPropertiesToTable(TableID="Bddm_Table",TableTSIDColumn="TSID")
+For(Name="Bddm_Table",IteratorProperty="TSID",TableID="Bddm_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebDiversionsDataFolder}/${TSID}.stm")
+EndFor(Name="Bddm_Table")
+#
+# Diversion - demand, monthly, historical (H.ddm)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}H.ddm",Alias="%L.StateMod.Demand.Month.H")
+CopyTimeSeriesPropertiesToTable(TableID="Hddm_Table",TableTSIDColumn="TSID")
+For(Name="Hddm_Table",IteratorProperty="TSID",TableID="Hddm_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebDiversionsDataFolder}/${TSID}.stm")
+EndFor(Name="Hddm_Table")
+#====================================
+# Instream flow station files
+#
+SetProperty(PropertyName="WebInstreamDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/instream")
+CreateFolder(Folder="${WebInstreamDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Instream flow - demand, average monthly (ifa)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}.ifa",Alias="%L.StateMod.InstreamFlowAverage.Month")
+CopyTimeSeriesPropertiesToTable(TableID="ifa_Table",TableTSIDColumn="TSID")
+For(Name="ifa_Table",IteratorProperty="TSID",TableID="ifa_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebInstreamDataFolder}/${TSID}.stm")
+EndFor(Name="ifa_Table")
+#
+# Instream flow - demand, monthly (ifm)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}.ifm",Alias="%L.StateMod.InstreamFlow.Month")
+CopyTimeSeriesPropertiesToTable(TableID="ifm_Table",TableTSIDColumn="TSID")
+For(Name="ifm_Table",IteratorProperty="TSID",TableID="ifm_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebInstreamDataFolder}/${TSID}.stm")
+EndFor(Name="ifm_Table")
+#
+# Instream flow - demand, monthly, baseline (B.ifm)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}B.ifm",Alias="%L.StateMod.InstreamFlow.B.Month")
+CopyTimeSeriesPropertiesToTable(TableID="Bifm_Table",TableTSIDColumn="TSID")
+For(Name="Bifm_Table",IteratorProperty="TSID",TableID="Bifm_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebInstreamDataFolder}/${TSID}.stm")
+EndFor(Name="Bifm_Table")
+#====================================
+# Reservoir station files
+#
+SetProperty(PropertyName="WebReservoirsDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/reservoirs")
+CreateFolder(Folder="${WebReservoirsDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Reservoir - end of month storage, historical monthly (eom)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}.eom",Alias="%L.StateMod.EOM.Month")
+CopyTimeSeriesPropertiesToTable(TableID="eom_Table",TableTSIDColumn="TSID")
+For(Name="eom_Table",IteratorProperty="TSID",TableID="eom_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebReservoirsDataFolder}/${TSID}.stm")
+EndFor(Name="eom_Table")
+#
+# Reservoir - target storage, monthly, baseline B (tar)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}B.tar",Alias="%L.StateMod.Target.Month.B")
+CopyTimeSeriesPropertiesToTable(TableID="Btar_Table",TableTSIDColumn="TSID")
+For(Name="Btar_Table",IteratorProperty="TSID",TableID="Btar_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebReservoirsDataFolder}/${TSID}.stm")
+EndFor(Name="Btar_Table")
+#
+# Reservoir - target storage, monthly, historical H (tar)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}H.tar",Alias="%L.StateMod.Target.Month.H")
+CopyTimeSeriesPropertiesToTable(TableID="Htar_Table",TableTSIDColumn="TSID")
+For(Name="Htar_Table",IteratorProperty="TSID",TableID="Htar_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebReservoirsDataFolder}/${TSID}.stm")
+EndFor(Name="Htar_Table")
+#
+# Reservoir - target storage, monthly, historical H2 (tar)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}H2.tar",Alias="%L.StateMod.Target.Month.H2")
+CopyTimeSeriesPropertiesToTable(TableID="H2tar_Table",TableTSIDColumn="TSID")
+For(Name="H2tar_Table",IteratorProperty="TSID",TableID="H2tar_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebReservoirsDataFolder}/${TSID}.stm")
+EndFor(Name="H2tar_Table")
+#====================================
+# Stream gage station files
+#
+SetProperty(PropertyName="WebStreamDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/stream")
+CreateFolder(Folder="${WebStreamDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Stream - historical volume, monthly (rih)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}.rih",Alias="%L.StateMod.Streamflow.Month")
+CopyTimeSeriesPropertiesToTable(TableID="rih_Table",TableTSIDColumn="TSID")
+For(Name="rih_Table",IteratorProperty="TSID",TableID="rih_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebStreamDataFolder}/${TSID}.stm")
+EndFor(Name="rih_Table")
