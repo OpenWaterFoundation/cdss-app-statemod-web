@@ -1,0 +1,53 @@
+#
+# Split StateMod output files time series into separate files, one time series per file.
+# - only output file parameters of interest to general users are split out (not all detailed parameters)
+# - more parameters can be added over time if they are of interest
+#
+# Set folders as properties to simplfify commands.
+# Location of StateMod files.
+SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
+# Name of the dataset, which is the base name for data files.
+SetProperty(PropertyName="DatasetName",PropertyType=String,PropertyValue="cm2015")
+# Location of output for b43 time series (diversions, instream, and stream nodes)
+SetProperty(PropertyName="WebOutputFlowNodesFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/flownodes")
+CreateFolder(Folder="${WebOutputFlowNodesFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+# Location of output for b44 time series (reservoir nodes)
+SetProperty(PropertyName="WebOutputReservoirsFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/reservoirs")
+CreateFolder(Folder="${WebOutputReservoirsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+#====================================
+# H2 run
+#====================================
+# Diversion, stream, instream station output file (flow nodes), H2 run (b43)
+#
+ReadStateModB(InputFile="${StateModFolder}/${DatasetName}H2.b43",IncludeDataTypes="Available_Flow,Consumptive_Use,River_Inflow,River_Outflow",Alias="%L.StateMod.%T.Month.H2")
+CopyTimeSeriesPropertiesToTable(TableID="H2b43_Table",TableTSIDColumn="TSID")
+For(Name="H2b43_Table",IteratorProperty="TSID",TableID="H2b43_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFlowNodesFolder}/${TSID}.stm")
+EndFor(Name="H2b43_Table")
+#====================================
+# Reservoir station output file, H2 run (b44)
+#
+ReadStateModB(InputFile="${StateModFolder}/${DatasetName}H2.b44",IncludeDataTypes="Sim_EOM,Initial_Storage,River_Inflow,Seep_Spill,Total_Release",Alias="%L.StateMod.%T.Month.H2")
+CopyTimeSeriesPropertiesToTable(TableID="H2b44_Table",TableTSIDColumn="TSID")
+For(Name="H2b44_Table",IteratorProperty="TSID",TableID="H2b44_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputReservoirsFolder}/${TSID}.stm")
+EndFor(Name="H2b44_Table")
+#====================================
+# B run
+#====================================
+# Diversion, stream, instream station output file (flow nodes), B run (b43)
+#
+ReadStateModB(InputFile="${StateModFolder}/${DatasetName}B.b43",IncludeDataTypes="Available_Flow,Consumptive_Use,River_Inflow,River_Outflow",Alias="%L.StateMod.%T.Month.B")
+CopyTimeSeriesPropertiesToTable(TableID="Bb43_Table",TableTSIDColumn="TSID")
+For(Name="Bb43_Table",IteratorProperty="TSID",TableID="Bb43_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFlowNodesFolder}/${TSID}.stm")
+EndFor(Name="Bb43_Table")
+#====================================
+# Reservoir station output file, B run (b44)
+#
+ReadStateModB(InputFile="${StateModFolder}/${DatasetName}B.b44",IncludeDataTypes="Sim_EOM,Initial_Storage,River_Inflow,Seep_Spill,Total_Release",Alias="%L.StateMod.%T.Month.B")
+CopyTimeSeriesPropertiesToTable(TableID="Bb44_Table",TableTSIDColumn="TSID")
+For(Name="Bb44_Table",IteratorProperty="TSID",TableID="Bb44_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputReservoirsFolder}/${TSID}.stm")
+EndFor(Name="Bb44_Table")
