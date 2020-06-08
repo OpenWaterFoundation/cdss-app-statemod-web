@@ -1,0 +1,132 @@
+{
+  "title": "Upper Colorado Water Allocation Model",
+  "version": "0.1.0 (2020-06-07)",
+  "mainMenu": [
+    {
+      "id": "SupportingData",
+      "name": "Supporting Data",
+      "align": "left",
+      "menus": [
+        {
+          "id": "basin",
+          "name": "Basin",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/Basin/basin.json"
+        },
+        {
+          "id": "stream-reaches",
+          "name": "StreamReaches",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/StreamReaches/streams.json"
+        },
+        {
+          "id": "climate-data",
+          "name": "Climate Data",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/Climate/climate.json"
+        },
+        {
+          "id": "entities-codwr-waterdistricts",
+          "name": "Division 5 Water Districts",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/WaterDistricts/codwr-waterdistricts.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "entities-ditches",
+          "name":  "Ditch Service Areas",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/Ditches/ditches.json"
+        },
+        {
+          "id": "irrigated-lands",
+          "name":  "IrrigatedLands",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/IrrigatedLands/irrigated-lands.json"
+        },
+        {
+          "id": "transbasin",
+          "name": "Transbasin Diversions",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "municipalities",
+          "name": "Municipalities",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/Municipalities/municipalities.json",
+          "separatorBefore" : true
+        }
+      ]
+    },
+    {
+      "id": "HistoricalSimulation",
+      "name": "Historical Simulation",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "h-system-map",
+          "name": "Colorado Historical Dataset Map",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "comment": "Link to CDSS Upper Colorado User's Manual.",
+          "id": "H-Documentation-Brief",
+          "name": "Model Brief",
+          "action": "externalLink",
+          "align": "right",
+          "url": "https://dnrweblink.state.co.us/cwcb/ElectronicFile.aspx?docid=128464&dbid=0",
+          "separatorBefore" : true
+        },
+        {
+          "comment": "Link to CDSS Upper Colorado modeling brief document.",
+          "id": "H-Documentation",
+          "name": "User's Manual",
+          "action": "externalLink",
+          "align": "right",
+          "url": "https://dnrweblink.state.co.us/cwcb/0/doc/200075/Electronic.aspx?searchid=d8eca6f8-7cfe-4ddf-9788-5886fd932c8c"
+        },
+        {
+          "comment": "Point layers with links to technical documentation for model nodes.",
+          "id": "tech-memos",
+          "name": "Technical Memoranda",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        }
+      ]
+    },
+    {
+      "id": "BaselineSimulation",
+      "name": "Baseline Simulation",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "b-system-map",
+          "name": "Colorado Baseline Dataset Map",
+          "enabled": "false",
+          "action": "displayMap",
+          "mapProject": "theNameOfTheMapProjectFile"
+        }
+      ]
+    },
+    {
+      "id": "about-the-project",
+      "name": "About the Project",
+      "action": "contentPage",
+      "align": "right",
+      "markdownFile": "content-pages/about-the-project.md"
+    }
+  ]
+}

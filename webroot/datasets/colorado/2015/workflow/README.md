@@ -9,5 +9,5 @@ The following is a summary of the workflow steps.
 | `01-download-dataset/` | Download the StateCU and StateMod datasets from CDSS website and unzip in standard location. |
 | `02-run-models/` | Run StateMod to create output for publishing, including `H`, `H2`, and `B` simulation runs . |
 | `03-split-model-files/` | Split `../StateMod` folder input and output files for web publishing. |
-| `04-process-spatial/` | Create spatial data files for InfoMapper. |
+| `04-process-spatial-data/` | Create spatial data files can configurations for InfoMapper. |
 | `05-upload-to-cloud/` | Upload the website content to the cloud. |
