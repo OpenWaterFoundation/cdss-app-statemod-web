@@ -40,8 +40,10 @@
 /webroot/datasets/colorado/2015/StateCU/
 /webroot/datasets/colorado/2015/StateMod/
 /webroot/datasets/colorado/2015/StreamSW/
-/webroot/datasets/colorado/2015/web/*
-!/webroot/datasets/colorado/2015/web/README.md
+# For web, just ignore dynamically-created files
+# - all other content is version-controlled
+/webroot/datasets/colorado/2015/web/data-maps/*
+/webroot/datasets/colorado/2015/web/data-ts/*
 
 # Gunnison 2015 dataset
 

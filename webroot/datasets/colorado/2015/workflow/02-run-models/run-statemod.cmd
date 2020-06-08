@@ -47,58 +47,32 @@ echo Dataset being run: %datasetName%
 
 rem Parse command line
 if "%1%"=="/h" (
-  goto printUsage 
+  call :printUsage 
   goto exit0
 )
 if "%1%"=="-h" (
-  goto printUsage 
+  call :printUsage 
   goto exit0
 )
-if "%1%"=="/i" (
-  rem Run in interactive mode.
+if "%1%"=="/b" (
+  rem Run in batch mode.
   echo Changing to StateMod folder:  %stateModFolder%
   cd %stateModFolder%
-  goto runInteractive 
-  goto exit0
+  call :runBatch 
+  exit /b %ERRORLEVEL%
 )
-if "%1%"=="-i" (
-  rem Run in interactive mode.
+if "%1%"=="-b" (
+  rem Run in batch mode.
   echo Changing to StateMod folder:  %stateModFolder%
   cd %stateModFolder%
-  goto runInteractive 
-  goto exit0
+  call :runBatch 
+  exit /b %ERRORLEVEL%
 )
 
-rem If here continue running the default steps in sequence in batch mode
-
-rem Change to the StateMod folder to run the model
-echo Changing to StateMod folder:  %stateModFolder%
-cd %stateModFolder%
-
-rem Run StateMod in sequence as per instructions for the dataset.
-rem - assume that baseflows have already been run since .xbm exists
-call :runStateModVersion
-
-call :runStateMod %datasetName%H.rsp -sim
-if %ERRORLEVEL% EQU 1 (
-  echo Error running H (historical) dataset.  See the log file.
-  goto exit1
-)
-
-call :runStateMod %datasetName%H2.rsp -sim
-if %ERRORLEVEL% EQU 1 (
-  echo Error running H2 (historical calibration) dataset.  See the log file.
-  goto exit1
-)
-
-call :runStateMod %datasetName%B.rsp -sim
-if %ERRORLEVEL% EQU 1 (
-  echo Error running B (baseline) dataset.  See the log file.
-  goto exit1
-)
-
-rem Successful runs so exit cleanly.
-goto exit0
+rem If here the default is to run interactive
+call :runInteractive 
+rem Exit with the return status from runInteractive
+exit /b %ERRORLEVEL%
 
 rem ========================================================================
 rem Below here are functions, in aphabetical order
@@ -109,12 +83,49 @@ rem Print the program usage.
 echo.
 echo Usage:  %scriptName% [options]
 echo.
-echo Run StateMod to create output or web publishing.
-echo By default, run StateMod steps needed to fully recreate H and B output.
+echo Run StateMod to create output for web published datasets.
+echo The default is to run in interactive mode, with menu for each major step.
 echo.
+echo -b      Run all StateMod simulation steps in batch mode.
 echo -h      Help, print this usage.
-echo -i      Run interactive mode, which provides an interactive text menu.
 echo.
+exit /b 0
+rem End of :printUsage
+
+:runBatch
+rem Run StateMod in batch mode.
+rem Change to the StateMod folder to run the model
+echo Changing to StateMod folder:  %stateModFolder%
+cd %stateModFolder%
+
+rem Run StateMod in sequence as per instructions for the dataset.
+rem - assume that baseflows have already been run since .xbm exists
+rem First print the version
+call :runStateModVersion
+
+rem Next run H.rsp
+call :runStateMod %datasetName%H.rsp -sim
+if %ERRORLEVEL% EQU 1 (
+  echo Error running H (historical) dataset.  See the log file.
+  goto exit1
+)
+
+rem Next run H2.rsp
+call :runStateMod %datasetName%H2.rsp -sim
+if %ERRORLEVEL% EQU 1 (
+  echo Error running H2 (historical calibration) dataset.  See the log file.
+  goto exit1
+)
+
+rem Next run B.rsp
+call :runStateMod %datasetName%B.rsp -sim
+if %ERRORLEVEL% EQU 1 (
+  echo Error running B (baseline) dataset.  See the log file.
+  goto exit1
+)
+exit /b %errorLevel2%
+rem End of :runBatch
+
 
 :runInteractive
 rem Run StateMod interactively, using a simple text menu
@@ -148,15 +159,14 @@ if "%answer%"=="4b" call :runStateMod %datasetName%H2.rsp -sim
 if "%answer%"=="simh2" call :runStateMod %datasetName%H2.rsp -sim
 if "%answer%"=="4" call :runStateMod %datasetName%B.rsp -sim
 if "%answer%"=="simb" call :runStateMod %datasetName%B.rsp -sim
-if "%answer%"=="s" (
-  call :runStateMod %dataset%H.rsp -sim
-  call :runStateMod %dataset%H2.rsp -sim
-  call :runStateMod %dataset%B.rsp -sim
-)
-if "%answer%" == "q" goto exit0
+if "%answer%"=="s" call :runBatch
+if "%answer%"=="q" goto exit0
 rem Anything else that was entered is ignored.
 rem Go to the top of the loop.
 goto runInteractive
+rem Put return here for consistency but 'q' will have exited.
+exit /b 0
+rem End of :runInteractive
 
 :runStateMod
 rem Function to run StateMod
@@ -172,6 +182,7 @@ set errorLevel2=%ERRORLEVEL%
 time /t
 echo ...finished running StateMod %rspFile% %runArg%
 exit /b %errorLevel2%
+rem End of :runStateMod
 
 :runStateModSimB
 rem Function to run StateMod B (baseline)
@@ -185,6 +196,7 @@ set errorLevel2=%ERRORLEVEL%
 time /t
 echo ...finished running sim for StateMod B (baseline) dataset.
 exit /b %errorLevel2%
+rem End of :runStateModSimB
 
 :runStateModSimH
 rem Function to run StateMod H (historical)
@@ -198,6 +210,7 @@ set errorLevel2=%ERRORLEVEL%
 time /t
 echo ...finished running sim for StateMod H (historical) dataset.
 exit /b %errorLevel2%
+rem End of :runStateModSimH
 
 :runStateModSimH2
 rem Function to run StateMod H2 (historical calibration)
@@ -211,12 +224,14 @@ set errorLevel2=%ERRORLEVEL%
 time /t
 echo ...finished running sim for StateMod H2 (historical calibration) dataset.
 exit /b %errorLevel2%
+rem End of :runStateModSimH2
 
 :runStateModVersion
 rem Function to run StateMod and print the version.
 rem - it is assumed the current folder is the StateMod dataset folder
 %statemodExe% -v
 exit /b 0
+rem End of :runStateModVersion
 
 :unsupportedOption
 rem Print a warning about unsupported menu option
@@ -226,8 +241,11 @@ echo.
 echo Menu item '%menuItem%' is not active.
 echo.
 exit /b 0
+rem End of :unsupportedOption
 
 :exit1
+rem Exit the program with status 1.
+rem This is not a function.  Do not "call".  Use goto.  It will exit the program.
 rem Change back to original folder
 echo Changing back to starting folder:  %currentFolder%
 cd %currentFolder%
@@ -236,6 +254,8 @@ echo Exiting with status 1
 exit /b 1
 
 :exit0
+rem Exit the program with status 0.
+rem This is not a function.  Do not "call".  Use goto.  It will exit the program.
 rem Change back to original folder
 echo Changing back to starting folder:  %currentFolder%
 cd %currentFolder%

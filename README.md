@@ -6,11 +6,13 @@ process input and output files, and publish a web application to view the datase
 
 * [Repository Contents](#repository-contents)
 * [Development Environment Folder Structure](#development-environment-folder-structure)
+* [Getting Started](#getting-started)
 * [Workflow Summary](#workflow-summary)
 	+ [Download Datasets](#download-datasets)
 	+ [Run StateMod](#run-statemod)
-	+ [Process Data](#process-data)
-	+ [Publish to Cloud](#publish-to-cloud)
+	+ [Split Model Files](#split-model-files)
+	+ [Process Spatial Data](##process-spatial-data)
+	+ [Upload to Cloud](#upload-to-cloud)
 * [License](#license)
 * [Maintainers](#maintainers)
 
@@ -82,9 +84,30 @@ C:\Users\user\                               Windows user home folder (typical d
 
 ```
 
+## Getting Started ##
+
+The following explains how to get started with StateMod Web tools.
+
+1. **Clone this repository**.  The folder structure described above is recommended.
+2. **Clone InfoMapper repository**.  Run the `build-util/git-clone-all.sh` script to clone.
+	1. In the `owf-app-info-mapper-ng/info-mapper` folder, run `npm install`.  Do not run `npm audit fix`.
+3. **Install software if not already installed**.
+The following software are neeeded to run all workflow steps.
+	* Note:  StateMod software will automatically be downloaded by the workflow process.
+	* [TSTool](http://opencdss.state.co.us/tstool/) - download the latest development release
+	* [GeoProcessor](http://software.openwaterfoundation.org/geoprocessor/) - download the latest development release
+		+ QGIS - download version compatible with GeoProcessor, as noted on the above web page
+	* [StateDMI](http://opencdss.state.co.us/statedmi/) - download the latest development release
+4. **Run the workflow below to process data:**
+	* Run the workflow steps (see below) for the `colorado/2015` dataset
+	* Run the `web/copy-to-info-mapper.sh` script and copy files to the InfoMapper assets.
+5. **Run InfoMapper**:
+	* In the `owf-app-info-mapper-ng/info-mapper` folder, run `ng serve --open`.
+	* View the website in a local browser as [http://localhost:4200/](http://localhost:4200/).
+
 ## Workflow Summary ##
 
-The following summarized main workflow steps.
+The following summarizes main workflow steps.
 Currently the web publishing tool (this repository) must be cloned from GitHub and
 the workflow run within the repository files.
 
@@ -96,16 +119,21 @@ and the StateMod software executable that is compatible with the dataset.
 The resulting folders and files are ignored from the Git repository since they are dynamic.
 
 Some datasets require manual steps, as indicated by comments in the TSTool command file.
-These steps may be fully automated in the future.
+These steps may be fully automated in the future and are indicated in
+[repository issues](https://github.com/OpenWaterFoundation/cdss-app-statemod-web/issues).
 
 ### Run StateMod ###
 
-The following is a summary on running StateMod for the dataset.
-This follows standard modeling conventions.
+The `workflow/02-run-models` folder for each dataset contains a `run-statemod-cmd` Windows script
+that runs the StateMod model in the proper sequence.
+Run the script from a Windows command prompt window.
+The default run mode is to show an interactive text menu.
 
-Need to fill out...
+### Split Model Files ###
 
-### Process Data ###
+The `workflow/03-split-model-files` folder for each dataset contains
+TSTool and StateDMI command files to split large model input and output files
+into separate files for each model node.
 
 The dataset published to the cloud needs to be accessible by the web application
 in a way that results in good performance.
@@ -121,17 +149,30 @@ TSTool software and command files are used to split the large model input
 and output files into individual files, saving the
 results to the `web` folder.
 
-Need to fill out more detail...
+### Process Spatial Data ###
+
+The `workflow/04-process-spatial-data` folder for each dataset contains
+TSTool and GeoProcessor command files to create spatial data layers and
+map configurations for the web application.
+
+The web application uses open data formats, in particular GeoJSON files.
+GeoJSON files have a number of advantages over shapefiles:
+
+* Single file for layer whereas shapefiles have multiple files.
+* Text format so transparent to review and troubleshoot.
+* No limit on attribute names (shapefile have 10-character limit).
+* Only geographic coordinate system is used, so data preparation is simplified.
 
 ### Publish to Cloud ###
+
+The `workflow/05-upload-to-cloud` folder for each dataset contains
+the ??? script (need to enable) to package and upload the InfoMapper distribution files.
 
 Each dataset is configured as its own web application using the
 [InfoMapper](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng)
 software developed by the Open Water Foundation.
 This requires assembling files and uploading to the website in a form that
 is necessary for the web application.
-
-Need to fill out...
 
 ## License ##
 

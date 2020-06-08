@@ -16,7 +16,9 @@ repoFolder=$(dirname ${scriptFolder})
 gitReposFolder=$(dirname ${repoFolder})
 
 # StateMod web tool GitHub repo URL root
-githubRootUrl="https://github.com/OpenCDSS"
+# - TODO smalers 2020-06-07 change when repo is moved to OpenCDSS
+#githubRootUrl="https://github.com/OpenCDSS"
+githubRootUrl="https://github.com/OpenWaterFoundation"
 
 # Main repository
 mainRepo="cdss-app-statemod-web"
