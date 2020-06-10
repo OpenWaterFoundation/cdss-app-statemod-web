@@ -1,5 +1,6 @@
 {
   "title": "Upper Colorado Water Allocation Model",
+  "homePage": "/content-pages/home.md",
   "version": "0.1.0 (2020-06-07)",
   "mainMenu": [
     {
@@ -16,10 +17,9 @@
         },
         {
           "id": "stream-reaches",
-          "name": "StreamReaches",
+          "name": "Stream Reaches",
           "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/StreamReaches/streams.json"
+          "mapProject" : "/data-maps/SupportingData/StreamReaches/stream-reaches.json"
         },
         {
           "id": "climate-data",
@@ -29,11 +29,10 @@
           "mapProject" : "data-maps/SupportingData/Climate/climate.json"
         },
         {
-          "id": "entities-codwr-waterdistricts",
-          "name": "Division 5 Water Districts",
+          "id": "codwr-waterdistricts",
+          "name": "CO DWR Division 5 Water Districts",
           "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/WaterDistricts/codwr-waterdistricts.json",
+          "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts.json",
           "separatorBefore" : true
         },
         {
@@ -45,7 +44,7 @@
         },
         {
           "id": "irrigated-lands",
-          "name":  "IrrigatedLands",
+          "name":  "Irrigated Lands",
           "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/IrrigatedLands/irrigated-lands.json"

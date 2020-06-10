@@ -15,11 +15,35 @@ copyMainConfig() {
   fi
 
   # Main application configuration file
-  cp -v app-config.json ${appFolder}
+  cp -v ${scriptFolder}/app-config.json ${appFolder}
   # Content pages
-  cp -rv content-pages ${appFolder}
+  cp -rv ${scriptFolder}/content-pages ${appFolder}
   # Images
-  cp -rv img ${appFolder}
+  cp -rv ${scriptFolder}/img ${appFolder}
+}
+
+copyStreamReaches() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/SupportingData
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/StreamReaches ${folder}
+}
+
+copyWaterDistricts() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/SupportingData
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/CoDwrWaterDistricts ${folder}
 }
 
 runInteractive() {
@@ -28,12 +52,18 @@ runInteractive() {
     echo "Enter an option to update application data."
     echo ""
     echo "c.  Copy main configuration files."
+    echo "ss.  Copy SupportingData/StreamReaches map files."
+    echo "sw.  Copy SupportingData/CoDwrWaterDistricts map files."
     echo ""
     echo "q.  Quit"
     echo ""
     read -p "Enter command: " answer
     if [ "${answer}" = "c" ]; then
       copyMainConfig
+    elif [ "${answer}" = "ss" ]; then
+      copyStreamReaches
+    elif [ "${answer}" = "sw" ]; then
+      copyWaterDistricts
     elif [ "${answer}" = "q" ]; then
       break
     fi

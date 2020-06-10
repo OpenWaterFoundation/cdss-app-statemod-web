@@ -19,9 +19,13 @@
 
 # Ignore all downloaded and dynamically generated files.
 # - README files are used as placholders in some folders to enforce the folder structure.
-# - the modeling folders will be dynamically created when datasets are downloaded
+# - the modeling folders are dynamically created when datasets are downloaded
+# - the long list of ignores with long paths are included here as an alternative to smaller .gitignore
+#   files that might be overlooked in the future
 
+# =========================================
 # Colorado 2015 dataset
+# =========================================
 
 /webroot/datasets/colorado/2015/bin/*
 !/webroot/datasets/colorado/2015/bin/README.md
@@ -45,7 +49,30 @@
 /webroot/datasets/colorado/2015/web/data-maps/*
 /webroot/datasets/colorado/2015/web/data-ts/*
 
+# Spatial data processing has additional dynamic output in subfolders
+# - generally ignore all files except README.md and *.csv used for classification
+
+# SupportingData/StreamReaches
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
+
+# SupportingData/CoDwrWaterDistricts
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/*.json
+
+# =========================================
 # Gunnison 2015 dataset
+# =========================================
 
 /webroot/datasets/gunnison/2015/bin/*
 !/webroot/datasets/gunnison/2015/bin/README.md
@@ -67,7 +94,9 @@
 /webroot/datasets/gunnison/2015/web/*
 !/webroot/datasets/gunnison/2015/web/README.md
 
+# =========================================
 # North Platte 2008 dataset
+# =========================================
 
 /webroot/datasets/northplatte/2008/bin/*
 !/webroot/datasets/northplatte/2008/bin/README.md
@@ -89,7 +118,9 @@
 /webroot/datasets/northplatte/2008/web/*
 !/webroot/datasets/northplatte/2008/web/README.md
 
+# =========================================
 # San Juan 2015 dataset
+# =========================================
 
 /webroot/datasets/sanjuan/2015/bin/*
 !/webroot/datasets/sanjuan/2015/bin/README.md
@@ -111,7 +142,9 @@
 /webroot/datasets/sanjuan/2015/web/*
 !/webroot/datasets/sanjuan/2015/web/README.md
 
+# =========================================
 # South Platte 2016 dataset
+# =========================================
 
 /webroot/datasets/southplatte/2016/bin/*
 !/webroot/datasets/southplatte/2016/bin/README.md
@@ -122,7 +155,9 @@
 /webroot/datasets/southplatte/2016/web/*
 !/webroot/datasets/southplatte/2016/web/README.md
 
+# =========================================
 # White 2015 dataset
+# =========================================
 
 /webroot/datasets/white/2015/bin/*
 !/webroot/datasets/white/2015/bin/README.md
@@ -144,7 +179,9 @@
 /webroot/datasets/white/2015/web/*
 !/webroot/datasets/white/2015/web/README.md
 
+# =========================================
 # Yampa 2015 dataset
+# =========================================
 
 /webroot/datasets/yampa/2015/bin/*
 !/webroot/datasets/yampa/2015/bin/README.md
@@ -182,7 +219,7 @@
 
 # Ignore all StateCU binary and report output files
 # - these files are created by StateCU
-# - always ignore in case other ignored folders are not properly figured
+# - always ignore in case other ignored folders are not properly configured
 
 season*.csv
 *.BD1
@@ -237,7 +274,7 @@ season*.csv
 
 # Ignore all StateMod binary and report output files
 # - these files are created by StateMod
-# - always ignore in case other ignored folders are not properly figured
+# - always ignore in case other ignored folders are not properly configured
 *.chk
 *.tmp
 fort.*

@@ -1,0 +1,16 @@
+# Category classification table for CO DWR water districts.
+# - the value corresponds to DISTRICT attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses DISTRICT and NAME values, currently hard-coded here because simple
+value,color,opacity,fillColor,fillOpacity,weight,label
+36,#b30000,1.0,#b30000,0.3,2,"36, Blue River"
+37,#ff6600,1.0,#ff6600,0.3,2,"37, Eagle River"
+38,#6a00b3,1.0,#6a00b3,0.3,2,"38, Roaring Fork River"
+39,#ffff00,1.0,#ffff00,0.3,2,"39, Rifle/Elk/Parachute Creek"
+45,#59b300,1.0,#59b300,0.3,2,"45, Divide Creek"
+50,#33cc33,1.0,#33cc33,0.3,2,"50, Muddy/Troublesome Creeks"
+51,#b3ff66,1.0,#b3ff66,0.3,2,"51, Upper Colorado/Frasier Rivers"
+52,#00ffff,1.0,#00ffff,0.3,2,"52, Piney/Cottonwood Creeks"
+53,#66a3ff,1.0,#66a3ff,0.3,2,"53, Tribs North of Colorado River"
+70,#003cb3,1.0,#003cb3,0.3,2,"70, Roan Creek"
+72,#3400b3,1.0,#3400b3,0.3,2,"72, Lower Colorado River"
