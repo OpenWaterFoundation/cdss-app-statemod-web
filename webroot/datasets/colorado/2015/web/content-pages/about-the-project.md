@@ -11,7 +11,7 @@ the model cannot be run from this website.
 
 This website and content published on the website use the following resources, as of the web application update (2020-06-07).
 
-### **Use right-click and open the link in a new tab, Ctrl-click, etc. to open a new tab.  Otherwise, the web application must reload each time this page is refreshed.** ###
+### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** ###
 
 * Colorado's Decision Support Systems [StateCU Dataset](https://www.colorado.gov/pacific/cdss/consumptive-use-statecu) and
 [StateMod Dataset](https://www.colorado.gov/pacific/cdss/surface-water-statemod) - latest published datasets

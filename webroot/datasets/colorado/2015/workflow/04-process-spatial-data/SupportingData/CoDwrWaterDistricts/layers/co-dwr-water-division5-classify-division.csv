@@ -1,0 +1,6 @@
+# Category classification table for single CO division.
+# - the value corresponds to DISTRICT attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses DISTRICT and NAME values, currently hard-coded here because simple
+value,color,opacity,fillColor,fillOpacity,weight,label
+5,#ffcc66,1.0,#ffcc66,0.3,2,"5, Colorado"
