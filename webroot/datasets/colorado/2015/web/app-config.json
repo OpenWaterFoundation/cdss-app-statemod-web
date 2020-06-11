@@ -35,12 +35,19 @@
           "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin.json"
         },
         {
-          "id": "climate-data",
-          "name": "Climate Data",
+          "id": "climate-stations",
+          "name": "Climate/Weather Stations",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/Climate/climate.json",
+          "mapProject" : "data-maps/SupportingData/ClimateStations/climate-stations.json",
           "separatorBefore" : true
+        },
+        {
+          "id": "coagmet-stations",
+          "name": "CoAgMET Stations",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/CoAgMETStations/coagmet-stations.json"
         },
         {
           "id": "entities-ditches",
@@ -72,11 +79,10 @@
       "align": "left",
       "menus" : [
         {
-          "id": "h-system-map",
-          "name": "Colorado Historical Dataset Map",
-          "enabled": "false",
+          "id": "cm2015-historical",
+          "name": "Historical (cm2015 H2) Dataset Map",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "data-maps/HistoricalSimulation/cm2015H2/cm2015-historical.json"
         },
         {
           "comment": "Link to CDSS Upper Colorado User's Manual.",
@@ -112,7 +118,7 @@
       "menus" : [
         {
           "id": "b-system-map",
-          "name": "Colorado Baseline Dataset Map",
+          "name": "Baseline (cm2015 B) Dataset Map",
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"

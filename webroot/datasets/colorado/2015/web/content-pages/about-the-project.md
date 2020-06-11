@@ -1,17 +1,19 @@
 # About the Project #
 
-This web application provides a simple interface for the Upper Colorado basin water allocation model dataset.
+This web application provides a simple interface for the Upper Colorado basin water allocation model dataset
+available from Colorado's Decision Support Systems.
 The project was funded by a Colorado Water Conservation Board (CWCB) Severance Tax grant.
 
 This web application relies on pre-generated files that have been uploaded to the cloud.
-Maps represent the model "nodes" and other spatial data.
-Map markers can be clicked on to provide access to time series data at the nodes.
+Maps present the model "nodes" and other spatial data.
+Map features can be moused over to provide information about map features.
+Model node map features can be clicked on to provide access to time series data at the nodes.
 Due to the complexity of data preparation and running the model, the model input cannot be changed and
 the model cannot be run from this website.
 
-This website and content published on the website use the following resources, as of the web application update (2020-06-07).
-
 ### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** ###
+
+This website and content published on the website use the following resources, as of the web application update (June 2020).
 
 * Colorado's Decision Support Systems [StateCU Dataset](https://www.colorado.gov/pacific/cdss/consumptive-use-statecu) and
 [StateMod Dataset](https://www.colorado.gov/pacific/cdss/surface-water-statemod) - latest published datasets

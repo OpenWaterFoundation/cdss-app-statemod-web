@@ -38,7 +38,7 @@ The following files and folders are used.
 | -- | -- | -- |
 | `01a-download-instream-reaches.gp` | GeoProcessor command file to download reach data. | |
 | `01b-download-instream-termini.gp` | GeoProcessor command file to download termini data. | |
-| `03-create-map-instream-reaches.gp` | GeoProcessor command file to create map. |
+| `03-create-map-instream-reaches.gp` | GeoProcessor command file to create map. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
