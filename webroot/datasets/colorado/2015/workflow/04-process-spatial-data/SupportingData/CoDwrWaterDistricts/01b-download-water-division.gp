@@ -1,4 +1,4 @@
-# Download Division 1 boundary file.
+# Download Division 5 boundary file.
 # - this should only need to be done if setting up a new workspace
 # - use the file on the OWF website since it has already been clipped for Division 5
 # - save the file to 'downloads' and then read and write to make sure GeoJSON version uses the latest specification

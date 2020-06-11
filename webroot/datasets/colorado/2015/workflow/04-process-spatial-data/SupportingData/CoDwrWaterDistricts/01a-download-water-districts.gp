@@ -1,4 +1,4 @@
-# Download Division 1 Water Districts file.
+# Download Division 5 Water Districts file.
 # - this should only need to be done periodically
 # - use the file on the OWF website since it has already been clipped for Division 5
 # - save the file in 'downloads' and then read and write to make sure GeoJSON uses the latest specification
