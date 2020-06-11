@@ -9,30 +9,37 @@
       "align": "left",
       "menus": [
         {
-          "id": "basin",
-          "name": "Basin",
+          "id": "codwr-waterdistricts",
+          "name": "CO DWR Division 5 Water Districts",
           "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/Basin/basin.json"
+          "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts.json"
         },
         {
           "id": "stream-reaches",
           "name": "Stream Reaches",
           "action": "displayMap",
-          "mapProject" : "/data-maps/SupportingData/StreamReaches/stream-reaches.json"
+          "mapProject" : "/data-maps/SupportingData/StreamReaches/stream-reaches.json",
+          "separatorBefore" : true
+        },
+        {
+          "id": "instream-reaches",
+          "name": "Instream Flow Reaches",
+          "action": "displayMap",
+          "mapProject" : "data-maps/SupportingData/InstreamFlowReaches/instream-reaches.json"
+        },
+        {
+          "id": "transbasin",
+          "name": "Transbasin Diversions",
+          "action": "displayMap",
+          "enabled": false,
+          "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin.json"
         },
         {
           "id": "climate-data",
           "name": "Climate Data",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/Climate/climate.json"
-        },
-        {
-          "id": "codwr-waterdistricts",
-          "name": "CO DWR Division 5 Water Districts",
-          "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts.json",
+          "mapProject" : "data-maps/SupportingData/Climate/climate.json",
           "separatorBefore" : true
         },
         {
@@ -40,7 +47,8 @@
           "name":  "Ditch Service Areas",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/Ditches/ditches.json"
+          "mapProject" : "data-maps/SupportingData/DitcheServiceAreas/ditches.json",
+          "separatorBefore" : true
         },
         {
           "id": "irrigated-lands",
@@ -48,14 +56,6 @@
           "enabled": "false",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/IrrigatedLands/irrigated-lands.json"
-        },
-        {
-          "id": "transbasin",
-          "name": "Transbasin Diversions",
-          "action": "displayMap",
-          "enabled": false,
-          "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin.json",
-          "separatorBefore" : true
         },
         {
           "id": "municipalities",
