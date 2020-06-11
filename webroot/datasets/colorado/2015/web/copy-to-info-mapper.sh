@@ -7,6 +7,19 @@
 
 # Supporting functions, alphabetized.
 
+copyInstreamFlowReaches() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/SupportingData
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+
+  # Copy instream flow reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/InstreamFlowReaches ${folder}
+}
+
+
 copyMainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
@@ -52,6 +65,7 @@ runInteractive() {
     echo "Enter an option to update application data."
     echo ""
     echo "c.  Copy main configuration files."
+    echo "si.  Copy SupportingData/InstreamFlowReaches map files."
     echo "ss.  Copy SupportingData/StreamReaches map files."
     echo "sw.  Copy SupportingData/CoDwrWaterDistricts map files."
     echo ""
@@ -60,6 +74,8 @@ runInteractive() {
     read -p "Enter command: " answer
     if [ "${answer}" = "c" ]; then
       copyMainConfig
+    elif [ "${answer}" = "si" ]; then
+      copyInstreamFlowReaches
     elif [ "${answer}" = "ss" ]; then
       copyStreamReaches
     elif [ "${answer}" = "sw" ]; then
@@ -96,5 +112,5 @@ echo "infoMapperRepoFolder=${infoMapperRepoFolder}"
 echo "infoMapperFolder=${infoMapperRepoFolder}"
 echo "appFolder=${appFolder}"
 
+# Run interactively. with script exit from that function
 runInteractive
-

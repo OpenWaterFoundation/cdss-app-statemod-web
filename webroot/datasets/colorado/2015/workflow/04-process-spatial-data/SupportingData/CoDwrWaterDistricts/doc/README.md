@@ -37,7 +37,6 @@ The following files and folders are used.
 
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
-| `.gitignore` | Indicates which files should be ignored in the repository. | |
 | `01a-download-water-districts.gp` | GeoProcessor command file to download water districts dataset. | |
 | `01b-download-water-division.gp` | GeoProcessor command file to download water division dataset. | |
 | `03-create-map-codwr-waterdistricts.gp` | GeoProcessor command file to create map. | |

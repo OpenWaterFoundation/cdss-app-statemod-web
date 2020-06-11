@@ -35,7 +35,6 @@ The following files and folders are used.
 
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
-| `.gitignore` | Indicates which files should be ignored in the repository. | |
 | `01a-download-swrf.gp` | GeoProcessor command file to download data. | |
 | `03-create-map-stream-reaches.gp` | GeoProcessor command file to create map. |
 | `doc/` | This `README.md` and related files. | |

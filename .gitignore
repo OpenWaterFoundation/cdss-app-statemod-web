@@ -52,15 +52,6 @@
 # Spatial data processing has additional dynamic output in subfolders
 # - generally ignore all files except README.md and *.csv used for classification
 
-# SupportingData/StreamReaches
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/README.md
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/README.md
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*.csv
-# Dynamic map configurations
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
-
 # SupportingData/CoDwrWaterDistricts
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/downloads/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/downloads/README.md
@@ -69,6 +60,24 @@
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*.csv
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/*.json
+
+# SupportingData/InstreamFlowReaches
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/*.json
+
+# SupportingData/StreamReaches
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
 
 # =========================================
 # Gunnison 2015 dataset

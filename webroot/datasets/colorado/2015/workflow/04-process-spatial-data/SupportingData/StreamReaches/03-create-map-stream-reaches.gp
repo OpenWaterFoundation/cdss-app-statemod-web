@@ -31,7 +31,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="Stre
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamReachesGroup
-ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Upper Colordo Stream Reaches",Description="Upper Colorado Stream Reaches")
+ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
 SetGeoLayerViewSingleSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
