@@ -70,6 +70,15 @@
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/*.json
 
+# SupportingData/IrrigatedLands
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/*.json
+
 # SupportingData/StreamReaches
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/downloads/README.md

@@ -1,0 +1,18 @@
+# Category classification table for irrigated lands
+# - the value corresponds to CROP_TYPE attribute
+# - the fill color is varies but all other properties are constant
+# - the label uses CROP_TYPE
+value,color,opacity,fillColor,fillOpacity,weight,label
+ALFALFA,#b30000,1.0,#b30000,0.3,2,"ALFALFA"
+BLUEGRASS,#59b300,1.0,#59b300,0.3,2,"BLUEGRASS"
+CORN_GRAIN,#ffff00,1.0,#ffff00,0.3,2,"CORN_GRAIN"
+DRY_BEANS,#003cb3,1.0,#003cb3,0.3,2,"DRY_BEANS"
+GRAPES,#66a3ff,1.0,#66a3ff,0.3,2,"GRAPES"
+GRASS_PASTURE,#ff6600,1.0,#ff6600,0.3,2,"GRASS_PASTURE"
+ORCHARD_WITH_COVER,#b3ff66,1.0,#b3ff66,0.3,2,"ORCHARD_WITH_COVER"
+ORCHARD_WO_COVER,#00ffff,1.0,#00ffff,0.3,2,"ORCHARD_WO_COVER"
+SMALL_GRAINS,#33cc33,1.0,#33cc33,0.3,2,"SMALL_GRAINS"
+SOD_FARM,#3400b3,1.0,#3400b3,0.3,2,"SOD_FARM"
+SORGHUM_GRAIN,#6a00b3,1.0,#6a00b3,0.3,2,"SORGHUM_GRAIN"
+VEGETABLES,#9b00b3,1.0,#9b00b3,0.3,2,"VEGETABLES"
+WHEAT_SPRING,#6a00b3,1.0,#6a00b3,0.3,2,"WHEAT_SPRING"

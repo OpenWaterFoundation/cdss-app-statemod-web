@@ -7,18 +7,28 @@
 
 # Supporting functions, alphabetized.
 
-copyInstreamFlowReaches() {
+checkSupportingDataFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/SupportingData
   if [ ! -d "${folder}" ]; then
     echo "Creating folder ${folder}"
     mkdir -p ${folder}
   fi
+}
+
+copyInstreamFlowReaches() {
+  checkSupportingDataFolder
 
   # Copy instream flow reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/InstreamFlowReaches ${folder}
 }
 
+copyIrrigatedLands() {
+  checkSupportingDataFolder
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/IrrigatedLands ${folder}
+}
 
 copyMainConfig() {
   # Make sure that folders exist
@@ -36,24 +46,14 @@ copyMainConfig() {
 }
 
 copyStreamReaches() {
-  # Make sure that the receiving folder exists
-  folder=${appFolder}/data-maps/SupportingData
-  if [ ! -d "${folder}" ]; then
-    echo "Creating folder ${folder}"
-    mkdir -p ${folder}
-  fi
+  checkSupportingDataFolder
 
   # Copy stream reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/StreamReaches ${folder}
 }
 
 copyWaterDistricts() {
-  # Make sure that the receiving folder exists
-  folder=${appFolder}/data-maps/SupportingData
-  if [ ! -d "${folder}" ]; then
-    echo "Creating folder ${folder}"
-    mkdir -p ${folder}
-  fi
+  checkSupportingDataFolder
 
   # Copy stream reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/CoDwrWaterDistricts ${folder}
@@ -64,8 +64,9 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data."
     echo ""
-    echo "c.  Copy main configuration files."
+    echo " c.  Copy main configuration files."
     echo "si.  Copy SupportingData/InstreamFlowReaches map files."
+    echo "sl.  Copy SupportingData/IrrigatedLands map files."
     echo "ss.  Copy SupportingData/StreamReaches map files."
     echo "sw.  Copy SupportingData/CoDwrWaterDistricts map files."
     echo ""
@@ -76,6 +77,8 @@ runInteractive() {
       copyMainConfig
     elif [ "${answer}" = "si" ]; then
       copyInstreamFlowReaches
+    elif [ "${answer}" = "sl" ]; then
+      copyIrrigatedLands
     elif [ "${answer}" = "ss" ]; then
       copyStreamReaches
     elif [ "${answer}" = "sw" ]; then
