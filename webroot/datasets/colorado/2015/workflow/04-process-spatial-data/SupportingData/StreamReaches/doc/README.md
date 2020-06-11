@@ -36,7 +36,7 @@ The following files and folders are used.
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
 | `01a-download-swrf.gp` | GeoProcessor command file to download data. | |
-| `03-create-map-stream-reaches.gp` | GeoProcessor command file to create map. |
+| `03-create-map-stream-reaches.gp` | GeoProcessor command file to create map. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |

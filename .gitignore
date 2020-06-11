@@ -88,6 +88,15 @@
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
 
+# HistoricalSimulation/cm2015H2
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/*.json
+
 # =========================================
 # Gunnison 2015 dataset
 # =========================================

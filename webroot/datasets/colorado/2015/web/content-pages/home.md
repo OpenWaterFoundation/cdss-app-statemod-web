@@ -1,7 +1,9 @@
-# CDSS Colorado (cm2015) Dataset (Prototype) #
+# CDSS Colorado (cm2015) Dataset #
 
+**This is a demonstration project.**
 This website provides a simple map-based interface to Colorado's Decision Support Systems (CDSS) Upper Colorado
-surface water supply simulation model dataset.
+water allocation model (StateMod) dataset.
+This website allows viewing the model input and output without having to download the dataset and software and and run the model.
 
 ### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** ###
 
@@ -22,4 +24,4 @@ for detailed information about the model (**Warning:  PDF can be slow to downloa
 
 See the ***About this Project*** menu for details about project implementation.
 
-### **This website is under development.  Currently, menus are an outline for features that are being phased in.** ###
+### **This website is under development.  Disabled menus are an outline for features that are being phased in.** ###

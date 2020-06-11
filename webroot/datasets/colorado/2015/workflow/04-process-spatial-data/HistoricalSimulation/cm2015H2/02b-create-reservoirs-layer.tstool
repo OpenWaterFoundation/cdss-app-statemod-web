@@ -1,0 +1,19 @@
+#
+# This command file creates the reservoir stations layer for StateMod dataset map.
+#
+# First read the river network file into a table
+ReadTableFromFixedFormatFile(TableID="RiverNetworkNodesTable",InputFile="..\..\..\..\StateMod\cm2015.rin",DataFormat="s12s20x1s3s12",ColumnNames="StateModStationId,StateModStationName,NodeType,DownStreamNodeId")
+#
+# Copy all FLO nodes into another table
+CopyTable(TableID="RiverNetworkNodesTable",NewTableID="ReservoirsTable",ColumnFilters="NodeType:RES")
+#
+# Read HydroBase structures for division 5, which have locations
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_structure where div=5",TableID="HydroBaseStructures")
+#
+# Join the HydroBase data to StateMod data
+JoinTables(TableID="ReservoirsTable",TableToJoinID="HydroBaseStructures",JoinColumns="StateModStationId:wdid",IncludeColumns="ciu,county,div,latdecdeg,longdecdeg,str_name,str_type,transbsn,wd",JoinMethod=JoinIfInBoth)
+#
+# Add additional data that is in the model but not found in HydroBase
+#
+# Write to a GeoJSON file for the web application
+WriteTableToGeoJSON(TableID="ReservoirsTable",OutputFile="layers/reservoirs.geojson",LongitudeColumn="longdecdeg",LatitudeColumn="latdecdeg")

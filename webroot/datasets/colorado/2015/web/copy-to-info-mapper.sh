@@ -7,6 +7,15 @@
 
 # Supporting functions, alphabetized.
 
+checkHistoricalSimulationFolder() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/HistoricalSimulation
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
 checkSupportingDataFolder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/SupportingData
@@ -14,6 +23,13 @@ checkSupportingDataFolder() {
     echo "Creating folder ${folder}"
     mkdir -p ${folder}
   fi
+}
+
+copyCm2015H2() {
+  checkHistoricalSimulationFolder
+
+  # Copy historical simulation map folder and files
+  cp -rv ${scriptFolder}/data-maps/HistoricalSimulation/cm2015H2 ${folder}
 }
 
 copyInstreamFlowReaches() {
@@ -70,11 +86,15 @@ runInteractive() {
     echo "ss.  Copy SupportingData/StreamReaches map files."
     echo "sw.  Copy SupportingData/CoDwrWaterDistricts map files."
     echo ""
+    echo "h.   Copy HistoricalSimulation/cm2015H2 map files."
+    echo ""
     echo "q.  Quit"
     echo ""
     read -p "Enter command: " answer
     if [ "${answer}" = "c" ]; then
       copyMainConfig
+    elif [ "${answer}" = "h" ]; then
+      copyCm2015H2
     elif [ "${answer}" = "si" ]; then
       copyInstreamFlowReaches
     elif [ "${answer}" = "sl" ]; then
