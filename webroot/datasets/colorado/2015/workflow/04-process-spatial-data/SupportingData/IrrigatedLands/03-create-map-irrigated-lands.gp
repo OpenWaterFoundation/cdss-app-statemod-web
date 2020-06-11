@@ -29,17 +29,28 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxSatelliteLayer",GeoMapID="IrrigatedLan
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreetsLayer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreetsLayerView",Name="Streets (MapBox)",Description="Streets background map from MapBox.",Properties="selectedInitial: false")
 AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="BackgroundGroup",GeoLayerViewID="MapBoxStreets&SatelliteLayerView",Name="Streets & Satellite (MapBox)",Description="Streets and satellite background map from MapBox.",Properties="selectedInitial: false")
 # = = = = = = = = = =
+# Irrigated lands
+# - select the most recent for initial view
+# = = = = = = = = = =
+# Irrigated lands (1993):  read layer and add to a layer view group.
+# GeoLayerViewGroupID: IrrigatedLandsGroup
+ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1993.geojson",GeoLayerID="IrrigatedLands1993Layer",Name="Division 5 Irrigated Lands",Description="Irrigated lands (1993) for Division 5 from Colorado's Decision Support Systems.")
+# The following layer view group is used for all years
+AddGeoLayerViewGroupToGeoMap(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",Name="Division 5 Irrigated Lands",Description="Irrigated lands for Division 5 from from Colorado's Decision Support System.",Properties="selectedInitial: true",InsertPosition="Top")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1993Layer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands1993LayerView",Name="Division 5 Irrigated Lands (1993)",Description="Irrigated lands (1993) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands1993LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
+# = = = = = = = = = =
 # Irrigated lands (2015):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-2015.geojson",GeoLayerID="IrrigatedLands2015Layer",Name="Division 5 Irrigated Lands",Description="Irrigated lands (2015) for Division 5 from Colorado's Decision Support Systems.")
-AddGeoLayerViewGroupToGeoMap(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",Name="Division 5 Irrigated Lands",Description="Irrigated lands for Division 5 from from Colorado's Decision Support System.",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2015Layer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands2015LayerView",Name="Division 5 Irrigated Lands (2015)",Description="Irrigated lands (2015) from CDSS",InsertPosition="Top")
-SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands2015LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-2015-classify-croptype.csv'")
+AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2015Layer",GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands2015LayerView",Name="Division 5 Irrigated Lands (2015)",Description="Irrigated lands (2015) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
+SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupID="IrrigatedLandsGroup",GeoLayerViewID="IrrigatedLands2015LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="IrrigatedLandsProject",Indent="2",OutputFile="irrigated-lands.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="irrigated-lands.json",DestinationFile="${MapFolder}/irrigated-lands.json")
+CopyFile(SourceFile="layers/irrigated-lands-1993.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1993.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-2015.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-2015.geojson")
-CopyFile(SourceFile="layers/irrigated-lands-2015-classify-croptype.csv",DestinationFile="${MapFolder}/layers/irrigated-lands-2015-classify-croptype.csv")
+CopyFile(SourceFile="layers/irrigated-lands-classify-croptype.csv",DestinationFile="${MapFolder}/layers/irrigated-lands-classify-croptype.csv")
