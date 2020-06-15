@@ -1,6 +1,10 @@
 # cdss-app-statemod-web #
 
 This repository contains the StateMod dataset web publishing tools.
+The following are the published locations of the website:
+
+* [Upper Colorado Water Allocation Model](http://opencdss.openwaterfoundation.org/datasets/colorado/2015/) - currently hosted at Open Water Foundation
+
 Automated workflows are provided to download datasets and software, run StateMod,
 process input and output files, and publish a web application to view the datasets.
 
@@ -81,6 +85,8 @@ C:\Users\user\                               Windows user home folder (typical d
       ==================== Above this names are recommendation, below are required ==================
       git-repos/                             Git repositories for StateMod web publishing tool.
         cdss-app-statemod-web/               See repository dependency list above.
+        owf-app-info-mapper-ng/              Open Water Foundation InfoMapper web application,
+                                             which provides the web interface.
 
 ```
 
@@ -89,36 +95,47 @@ C:\Users\user\                               Windows user home folder (typical d
 The following explains how to get started with StateMod Web tools.
 
 1. **Clone this repository**.  The folder structure described above is recommended.
-2. **Clone InfoMapper repository**.  Run the `build-util/git-clone-all.sh` script to clone.
-	1. In the `owf-app-info-mapper-ng/info-mapper` folder, run `npm install`.  Do not run `npm audit fix`.
+2. **Clone InfoMapper repository**.  Run the `build-util/git-clone-prod.sh` script to clone.
+	1. In the `owf-app-info-mapper-ng/info-mapper` folder, run `npm install`.
+	2. Do not run `npm audit fix`.
 3. **Install software if not already installed**.
 The following software are neeeded to run all workflow steps.
 	* Note:  StateMod software will automatically be downloaded by the workflow process.
 	* [TSTool](http://opencdss.state.co.us/tstool/) - download the latest development release
 	* [GeoProcessor](http://software.openwaterfoundation.org/geoprocessor/) - download the latest development release
-		+ QGIS - download version compatible with GeoProcessor, as noted on the above web page
+		+ QGIS - download version compatible with GeoProcessor, as noted in the above
+		GeoProcessor installation instructions
 	* [StateDMI](http://opencdss.state.co.us/statedmi/) - download the latest development release
 4. **Run the workflow below to process data:**
-	* Run the workflow steps (see below) for the `colorado/2015` dataset
-	* Run the `web/copy-to-info-mapper.sh` script and copy files to the InfoMapper assets.
+	* Run the workflow steps (see below) for the `colorado/2015` dataset.
+	* Run the `web/copy-to-info-mapper.sh` script and copy files to the InfoMapper application files.
+	This step is needed to ensure separation of InfoMapper repository files from this repository's files.
 5. **Run InfoMapper**:
 	* In the `owf-app-info-mapper-ng/info-mapper` folder, run `ng serve --open`.
 	* View the website in a local browser as [http://localhost:4200/](http://localhost:4200/).
 
 ## Workflow Summary ##
 
-The following summarizes main workflow steps.
+The following summarizes main workflow steps that need to be run in the `workflow/` folders.
 Currently the web publishing tool (this repository) must be cloned from GitHub and
-the workflow run within the repository files.
+the workflow run within the repository working files.
+
+The workflow files are specific to a dataset, for example `webroot/datasets/colorado/cm2015/workflow/`
+and can be duplicated similarly for each basin and dataset version.
 
 ### Download Datasets ###
 
 The `workflow/01-download-dataset` folder for each dataset contains a TSTool
-command file that downloads the basin's StateCU and StateMod datasets,
-and the StateMod software executable that is compatible with the dataset.
+command file that automates download of the following, for the dataset:
+
+* StateCU CDSS dataset - saved to `StateCU` folder
+* StateMod CDSS dataset - saved to `StateMod` folder
+* StateMod software executable that is compatible with the dataset - saved to `bin` folder
+
 The resulting folders and files are ignored from the Git repository since they are dynamic.
 
-Some datasets require manual steps, as indicated by comments in the TSTool command file.
+Some datasets require manual steps, as indicated by comments in the TSTool command file
+(for example North Platte WinZip installer cannot be run on the command line).
 These steps may be fully automated in the future and are indicated in
 [repository issues](https://github.com/OpenWaterFoundation/cdss-app-statemod-web/issues).
 
@@ -127,7 +144,7 @@ These steps may be fully automated in the future and are indicated in
 The `workflow/02-run-models` folder for each dataset contains a `run-statemod-cmd` Windows script
 that runs the StateMod model in the proper sequence.
 Run the script from a Windows command prompt window.
-The default run mode is to show an interactive text menu.
+The default run mode is to show an interactive text menu to guide the user through the run process.
 
 ### Split Model Files ###
 
@@ -166,7 +183,10 @@ GeoJSON files have a number of advantages over shapefiles:
 ### Publish to Cloud ###
 
 The `workflow/05-upload-to-cloud` folder for each dataset contains
-the ??? script (need to enable) to package and upload the InfoMapper distribution files.
+the `copy-to-owf-amazon-s3.sh` script to package and upload the InfoMapper distribution files
+to the Open Water Foundation's Amazon S3 bucket.
+A similar script will be enabled to publish files to the State of Colorado's
+OpenCDSS website, with similar URL and folder structure..
 
 Each dataset is configured as its own web application using the
 [InfoMapper](https://github.com/OpenWaterFoundation/owf-app-info-mapper-ng)
@@ -176,9 +196,7 @@ is necessary for the web application.
 
 ## License ##
 
-Copyright Colorado Department of Natural Resources.
-
-The software is licensed under GPL v3+. See the [LICENSE.md](LICENSE.md) file.
+The InfoMapper software is licensed under GPL v3+. See the [LICENSE.md](LICENSE.md) file.
 
 Workflows and documentation are licensed under
 [Creative Commons Attribution International 4.0 (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/).
