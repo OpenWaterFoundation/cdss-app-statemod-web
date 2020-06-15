@@ -6,15 +6,15 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../../web")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/InstreamFlowReaches")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  InstreamReachesProject
 # - GeoMapID:  InstreamReachesMap
 CreateGeoMapProject(NewGeoMapProjectID="InstreamReachesProject",ProjectType="SingleMap",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.64,39.60,9.25'")
+CreateGeoMap(NewGeoMapID="InstreamReachesMap",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.9819,39.6923,9'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="InstreamReachesProject",GeoMapID="InstreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -44,8 +44,8 @@ SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="I
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="InstreamReachesProject",Indent="2",OutputFile="instream-reaches.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="InstreamReachesProject",Indent="2",OutputFile="instream-reaches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="instream-reaches.json",DestinationFile="${MapFolder}/instream-reaches.json")
+CopyFile(SourceFile="instream-reaches-map.json",DestinationFile="${MapFolder}/instream-reaches-map.json")
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
 CopyFile(SourceFile="layers/instream-termini.geojson",DestinationFile="${MapFolder}/layers/instream-termini.geojson")

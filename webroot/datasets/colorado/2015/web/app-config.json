@@ -12,34 +12,34 @@
           "id": "codwr-waterdistricts",
           "name": "CO DWR Division 5 Water Districts",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts.json"
+          "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
         {
           "id": "stream-reaches",
           "name": "Stream Reaches",
           "action": "displayMap",
-          "mapProject" : "/data-maps/SupportingData/StreamReaches/stream-reaches.json",
+          "mapProject" : "data-maps/SupportingData/StreamReaches/stream-reaches-map.json",
           "separatorBefore" : true
         },
         {
           "id": "instream-reaches",
           "name": "Instream Flow Reaches",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/InstreamFlowReaches/instream-reaches.json"
+          "mapProject" : "data-maps/SupportingData/InstreamFlowReaches/instream-reaches-map.json"
         },
         {
           "id": "transbasin",
           "name": "Transbasin Diversions",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin.json"
+          "mapProject" : "data-maps/SupportingData/TransbasinDiversions/transbasin-map.json"
         },
         {
           "id": "climate-stations",
           "name": "Climate/Weather Stations",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/ClimateStations/climate-stations.json",
+          "mapProject" : "data-maps/SupportingData/ClimateStations/climate-stations-map.json",
           "separatorBefore" : true
         },
         {
@@ -47,28 +47,28 @@
           "name": "CoAgMET Stations",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/CoAgMETStations/coagmet-stations.json"
+          "mapProject" : "data-maps/SupportingData/CoAgMETStations/coagmet-stations-map.json"
         },
         {
           "id": "entities-ditches",
           "name":  "Ditch Service Areas",
           "enabled": "false",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/DitcheServiceAreas/ditches.json",
+          "mapProject" : "data-maps/SupportingData/DitcheServiceAreas/ditches-map.json",
           "separatorBefore" : true
         },
         {
           "id": "irrigated-lands",
           "name":  "Irrigated Lands",
           "action": "displayMap",
-          "mapProject" : "data-maps/SupportingData/IrrigatedLands/irrigated-lands.json"
+          "mapProject" : "data-maps/SupportingData/IrrigatedLands/irrigated-lands-map.json"
         },
         {
           "id": "municipalities",
           "name": "Municipalities",
           "action": "displayMap",
           "enabled": false,
-          "mapProject" : "data-maps/SupportingData/Municipalities/municipalities.json",
+          "mapProject" : "data-maps/SupportingData/Municipalities/municipalities-map.json",
           "separatorBefore" : true
         }
       ]
@@ -80,9 +80,9 @@
       "menus" : [
         {
           "id": "cm2015-historical",
-          "name": "Historical (cm2015 H2) Dataset Map",
+          "name": "Historical (cm2015 H & H2) Dataset Map",
           "action": "displayMap",
-          "mapProject": "data-maps/HistoricalSimulation/cm2015H2/cm2015-historical.json"
+          "mapProject": "data-maps/HistoricalSimulation/cm2015H2/cm2015-historical-map.json"
         },
         {
           "comment": "Link to CDSS Upper Colorado User's Manual.",
@@ -119,18 +119,38 @@
         {
           "id": "b-system-map",
           "name": "Baseline (cm2015 B) Dataset Map",
-          "enabled": "false",
           "action": "displayMap",
-          "mapProject": "theNameOfTheMapProjectFile"
+          "mapProject": "data-maps/BaselineSimulation/cm2015B/cm2015-baseline-map.json"
         }
       ]
     },
     {
-      "id": "about-the-project",
-      "name": "About the Project",
-      "action": "contentPage",
-      "align": "right",
-      "markdownFile": "content-pages/about-the-project.md"
+      "id": "Resources",
+      "name": "Resources",
+      "align": "left",
+      "menus" : [
+        {
+          "id": "about-the-project",
+          "name": "About the Project",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/about-the-project.md"
+        },
+        {
+          "id": "contact",
+          "name": "Contact",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/contact.md"
+        },
+        {
+          "id": "release-notes",
+          "name": "Release Notes",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/release-notes.md"
+        }
+      ]
     }
   ]
 }

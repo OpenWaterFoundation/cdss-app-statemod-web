@@ -39,8 +39,8 @@ The following files and folders are used.
 | -- | -- | -- |
 | `01a-download-water-districts.gp` | GeoProcessor command file to download water districts dataset. | |
 | `01b-download-water-division.gp` | GeoProcessor command file to download water division dataset. | |
-| `03-create-map-codwr-waterdistricts.gp` | GeoProcessor command file to create map. | |
-| `codwr-waterdistricts.json` | Map configuration file. | Yes |
+| `03-create-codwr-waterdistricts-map.gp` | GeoProcessor command file to create map. | |
+| `codwr-waterdistricts-map.json` | Map configuration file. | Yes |
 | `data/` | Data files used as input and stored in the repository. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
@@ -54,4 +54,4 @@ The following describes the workflow steps, which should be run in the order sho
 | -- | -- | -- |
 | `01a-download-water-districts.gp` | GeoProcessor | Download water districts layer from OWF CDSS data website and save to `layers` folder. |
 | `01b-download-water-division.gp` | GeoProcessor | Download water division layer from OWF CDSS data website and save to `layers` folder. |
-| `03-create-map-codwr-waterdistricts.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |
+| `03-create-codwr-waterdistricts-map.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |

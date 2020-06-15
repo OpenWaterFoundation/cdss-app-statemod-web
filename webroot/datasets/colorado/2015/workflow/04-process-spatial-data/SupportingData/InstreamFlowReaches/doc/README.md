@@ -28,7 +28,7 @@ The following are datasets for the map.
 | **Dataset** | **Description** | **Data Source** |
 | -- | -- | -- |
 | Intream Flow Reaches | Stream linework with each instream flow right (reach) corresponding to a single line.  The CWCB maintains this dataset. | The data is originally from a statewide layer downloaded from the [State of Colorado CDSS website](https://www.colorado.gov/pacific/cdss/gis-data-category).  It was then processed by OWF to split into water district layer and is available on the [CDSS Spatial Datasets for Colorado Water Districts and Divisions](http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/) website.  **The OWF dataset is older and uses the original GeoJSON specification.  The workflow reads the old GeoJSON and writes in latest specification.** |
-| Intream Flow Terminia | Upper and lower termini of instream flow reaches.  The CWCB maintains this dataset. | The data is originally from a statewide layer downloaded from the [State of Colorado CDSS website](https://www.colorado.gov/pacific/cdss/gis-data-category).  It was then processed by OWF to split into water district layer and is available on the [CDSS Spatial Datasets for Colorado Water Districts and Divisions](http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/) website.  **The OWF dataset is older and uses the original GeoJSON specification.  The workflow reads the old GeoJSON and writes in latest specification.** |
+| Intream Flow Termini | Upper and lower termini of instream flow reaches.  The CWCB maintains this dataset. | The data is originally from a statewide layer downloaded from the [State of Colorado CDSS website](https://www.colorado.gov/pacific/cdss/gis-data-category).  It was then processed by OWF to split into water district layer and is available on the [CDSS Spatial Datasets for Colorado Water Districts and Divisions](http://data.openwaterfoundation.org/co/cdss-data-spatial-bybasin/) website.  **The OWF dataset is older and uses the original GeoJSON specification.  The workflow reads the old GeoJSON and writes in latest specification.** |
 
 ## Files ##
 
@@ -38,11 +38,11 @@ The following files and folders are used.
 | -- | -- | -- |
 | `01a-download-instream-reaches.gp` | GeoProcessor command file to download reach data. | |
 | `01b-download-instream-termini.gp` | GeoProcessor command file to download termini data. | |
-| `03-create-map-instream-reaches.gp` | GeoProcessor command file to create map. | |
+| `03-create-instream-reaches-map.gp` | GeoProcessor command file to create map. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
-| `instream-reaches.json` | Map configuration file. | Yes |
+| `instream-reaches-map.json` | Map configuration file. | Yes |
 
 ## Workflow ##
 
@@ -52,4 +52,4 @@ The following describes the workflow steps, which should be run in the order sho
 | -- | -- | -- |
 | `01a-download-instream-reaches.gp` | GeoProcessor | Download the instream flow reaches from OWF data website and rewrite to ensure latest GeoJSON format. |
 | `01b-download-instream-termini.gp` | GeoProcessor | Download the instream flow termini from OWF data website and rewrite to ensure latest GeoJSON format. |
-| `03-create-map-instream-reaches.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
+| `03-create-instream-reaches-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |

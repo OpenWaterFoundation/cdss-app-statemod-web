@@ -6,15 +6,15 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../../web")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/CoDwrWaterDistricts")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  WaterDistrictsProject
 # - GeoMapID:  WaterDistrictsMap
 CreateGeoMapProject(NewGeoMapProjectID="WaterDistrictsProject",ProjectType="SingleMap",Name="CO Division 5 Water Districts",Description="Colorado Division 5 water districts for water administration.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 5 Water Districts",Description="Colorado Division 5 water districts for water administration.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.64,39.60,9.25'")
+CreateGeoMap(NewGeoMapID="WaterDistrictsMap",Name="CO Division 5 Water Districts",Description="Colorado Division 5 water districts for water administration.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.9819,39.6923,9'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="WaterDistrictsProject",GeoMapID="WaterDistrictsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -44,9 +44,9 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="WaterDistrictsMap",GeoLayerViewGroupI
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="WaterDistrictsProject",Indent="2",OutputFile="codwr-waterdistricts-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="codwr-waterdistricts.json",DestinationFile="${MapFolder}/codwr-waterdistricts.json")
+CopyFile(SourceFile="codwr-waterdistricts-map.json",DestinationFile="${MapFolder}/codwr-waterdistricts-map.json")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division5.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division5.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division5-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division5-classify-district.csv")
 CopyFile(SourceFile="layers/co-dwr-water-division5.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division5.geojson")

@@ -33,8 +33,8 @@ The following files and folders are used.
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
 | `01-download-irrigated-lands.gp` | GeoProcessor command file to download irrigated lands dataset. | |
-| `03-create-map-irrigated-lands.gp` | GeoProcessor command file to create map. | |
-| `irrigated-lands.json` | Map configuration file. | Yes |
+| `03-create-irrigated-lands-map.gp` | GeoProcessor command file to create map. | |
+| `irrigated-lands-map.json` | Map configuration file. | Yes |
 | `data/` | Data files used as input and stored in the repository. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
@@ -47,4 +47,4 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01-download-irrigated-lands.gp` | GeoProcessor | Download irrigated lands layers from OWF CDSS data website and save to `layers` folder. |
-| `03-create-map-irrigated-lands.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |
+| `03-create-irrigated-lands-map.gp` | GeoProcessor | Create a GeoMapProject file for use with the InfoMapper. |

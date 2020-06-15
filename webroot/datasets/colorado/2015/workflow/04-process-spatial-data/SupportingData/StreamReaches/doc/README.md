@@ -36,11 +36,11 @@ The following files and folders are used.
 | **File/Folder** | **Description** | **Repo Ignore** |
 | -- | -- | -- |
 | `01a-download-swrf.gp` | GeoProcessor command file to download data. | |
-| `03-create-map-stream-reaches.gp` | GeoProcessor command file to create map. | |
+| `03-create-stream-reaches-map.gp` | GeoProcessor command file to create map. | |
 | `doc/` | This `README.md` and related files. | |
 | `downloads/` | Downloaded files. | Yes - for downloaded files. |
 | `layers/` | Layers and supporting files used in the map. | Yes - for generated files. |
-| `stream-reaches.json` | Map configuration file. | Yes |
+| `stream-reaches-map.json` | Map configuration file. | Yes |
 
 ## Workflow ##
 
@@ -49,4 +49,4 @@ The following describes the workflow steps, which should be run in the order sho
 | **Command File/Script** | **Software** | **Description** |
 | -- | -- | -- |
 | `01-download-swrf.gp` | GeoProcessor | Download the stream reaches from OWF data website and rewrite to ensure latest GeoJSON format. |
-| `03-create-map-stream-reaches.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |
+| `03-create-stream-reaches-map.gp` | GeoProcessor | Create the map configuration file and copy map and layer files to the distribution folder. |

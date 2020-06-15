@@ -1,0 +1,19 @@
+#
+# This command file creates the streamflow stations layer for StateMod dataset map.
+#
+# First read the river network file into a table
+ReadTableFromFixedFormatFile(TableID="RiverNetworkNodesTable",InputFile="..\..\..\..\StateMod\cm2015.rin",DataFormat="s12s20x1s3s12",ColumnNames="StateModStationId,StateModStationName,NodeType,DownStreamNodeId")
+#
+# Copy all FLO nodes into another table
+CopyTable(TableID="RiverNetworkNodesTable",NewTableID="StreamGagesTable",ColumnFilters="NodeType:FLO")
+#
+# Read HydroBase stations for division 5, which have locations
+ReadTableFromDataStore(DataStore="HydroBase",Sql="select * from vw_CDSS_station where div=5",TableID="HydroBaseStations")
+#
+# Join the HydroBase data to StateMod data
+JoinTables(TableID="StreamGagesTable",TableToJoinID="HydroBaseStations",JoinColumns="StateModStationId:station_id",IncludeColumns="abbrev,county,div,latdecdeg,longdecdeg,station_name,transbsn,wd",JoinMethod=JoinIfInBoth)
+#
+# Add additional data that is in the model but not found in HydroBase
+#
+# Write to a GeoJSON file for the web application
+WriteTableToGeoJSON(TableID="StreamGagesTable",OutputFile="layers/streamgages.geojson",LongitudeColumn="longdecdeg",LatitudeColumn="latdecdeg")

@@ -6,15 +6,15 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../../web")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/HistoricalSimulation/cm2015H2")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  cm2015HistoricalProject
 # - GeoMapID:  cm2015HistoricalMap
 CreateGeoMapProject(NewGeoMapProjectID="cm2015HistoricalProject",ProjectType="SingleMap",Name="Upper Colorado Historical Dataset",Description="Upper Colorado Historical Dataset",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="cm2015HistoricalMap",Name="Upper Colorado Historical Dataset",Description="Upper Colorado Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.64,39.60,9.25'")
+CreateGeoMap(NewGeoMapID="cm2015HistoricalMap",Name="Upper Colorado Historical Dataset",Description="Upper Colorado Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.9819,39.6923,9'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="cm2015HistoricalProject",GeoMapID="cm2015HistoricalMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -69,9 +69,9 @@ SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="cm2015HistoricalProject",Indent="2",OutputFile="cm2015-historical.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="cm2015HistoricalProject",Indent="2",OutputFile="cm2015-historical-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="cm2015-historical.json",DestinationFile="${MapFolder}/cm2015-historical.json")
+CopyFile(SourceFile="cm2015-historical-map.json",DestinationFile="${MapFolder}/cm2015-historical-map.json")
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
