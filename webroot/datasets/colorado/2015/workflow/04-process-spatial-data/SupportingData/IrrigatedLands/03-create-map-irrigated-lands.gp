@@ -6,15 +6,15 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../../web")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/IrrigatedLands")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  IrrigatedLandsProject
 # - GeoMapID:  IrrigatedLandsMap
 CreateGeoMapProject(NewGeoMapProjectID="IrrigatedLandsProject",ProjectType="SingleMap",Name="Division 5 Irrigated Lands",Description="Division 5 irrigated lands.",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="Division 5 Irrigated Lands",Description="Division 5 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.64,39.60,9.25'")
+CreateGeoMap(NewGeoMapID="IrrigatedLandsMap",Name="Division 5 Irrigated Lands",Description="Division 5 irrigated lands from CDSS.",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.9819,39.6923,9'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="IrrigatedLandsProject",GeoMapID="IrrigatedLandsMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -48,9 +48,9 @@ SetGeoLayerViewCategorizedSymbol(GeoMapID="IrrigatedLandsMap",GeoLayerViewGroupI
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="IrrigatedLandsProject",Indent="2",OutputFile="irrigated-lands.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="IrrigatedLandsProject",Indent="2",OutputFile="irrigated-lands-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="irrigated-lands.json",DestinationFile="${MapFolder}/irrigated-lands.json")
+CopyFile(SourceFile="irrigated-lands-map.json",DestinationFile="${MapFolder}/irrigated-lands-map.json")
 CopyFile(SourceFile="layers/irrigated-lands-1993.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1993.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-2015.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-2015.geojson")
 CopyFile(SourceFile="layers/irrigated-lands-classify-croptype.csv",DestinationFile="${MapFolder}/layers/irrigated-lands-classify-croptype.csv")

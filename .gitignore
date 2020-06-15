@@ -97,6 +97,15 @@
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/*.json
 
+# BaselineSimulation/cm2015B
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/*.csv
+# Dynamic map configurations
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/*.json
+
 # =========================================
 # Gunnison 2015 dataset
 # =========================================

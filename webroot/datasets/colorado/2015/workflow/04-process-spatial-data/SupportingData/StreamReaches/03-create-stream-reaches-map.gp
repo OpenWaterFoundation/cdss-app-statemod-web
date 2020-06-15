@@ -6,15 +6,15 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AssetsFolder",PropertyType="str",PropertyValue="../../../../web")
-SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AssetsFolder}/data-maps")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
 SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/SupportingData/StreamReaches")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  StreamReachesProject
 # - GeoMapID:  StreamReachesMap
 CreateGeoMapProject(NewGeoMapProjectID="StreamReachesProject",ProjectType="SingleMap",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="author:'Open Water Foundation',specificationVersion:'1.0.0'")
-CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.64,39.60,9.25'")
+CreateGeoMap(NewGeoMapID="StreamReachesMap",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",CRS="EPSG:4326",Properties="extentInitial:'ZoomLevel:-107.9819,39.6923,9'")
 AddGeoMapToGeoMapProject(GeoMapProjectID="StreamReachesProject",GeoMapID="StreamReachesMap")
 # = = = = = = = = = =
 # Background layers:  read layers and add a layer view group
@@ -39,7 +39,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="StreamReachesMap",GeoLayerViewGroupID="Str
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
-WriteGeoMapProjectToJSON(GeoMapProjectID="StreamReachesProject",Indent="2",OutputFile="stream-reaches.json")
+WriteGeoMapProjectToJSON(GeoMapProjectID="StreamReachesProject",Indent="2",OutputFile="stream-reaches-map.json")
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
-CopyFile(SourceFile="stream-reaches.json",DestinationFile="${MapFolder}/stream-reaches.json")
+CopyFile(SourceFile="stream-reaches-map.json",DestinationFile="${MapFolder}/stream-reaches-map.json")
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")

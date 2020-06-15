@@ -7,7 +7,16 @@
 
 # Supporting functions, alphabetized.
 
-checkHistoricalSimulationFolder() {
+check_BaselineSimulation_Folder() {
+  # Make sure that the receiving folder exists
+  folder=${appFolder}/data-maps/BaselineSimulation
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
+check_HistoricalSimulation_Folder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/HistoricalSimulation
   if [ ! -d "${folder}" ]; then
@@ -16,7 +25,7 @@ checkHistoricalSimulationFolder() {
   fi
 }
 
-checkSupportingDataFolder() {
+check_SupportingData_Folder() {
   # Make sure that the receiving folder exists
   folder=${appFolder}/data-maps/SupportingData
   if [ ! -d "${folder}" ]; then
@@ -25,28 +34,21 @@ checkSupportingDataFolder() {
   fi
 }
 
-copyCm2015H2() {
-  checkHistoricalSimulationFolder
+copy_BaselineSimulation_cm2015B() {
+  check_BaselineSimulation_Folder
+
+  # Copy baseline simulation map folder and files
+  cp -rv ${scriptFolder}/data-maps/BaselineSimulation/cm2015B ${folder}
+}
+
+copy_HistoricalSimulation_cm2015H2() {
+  check_HistoricalSimulation_Folder
 
   # Copy historical simulation map folder and files
   cp -rv ${scriptFolder}/data-maps/HistoricalSimulation/cm2015H2 ${folder}
 }
 
-copyInstreamFlowReaches() {
-  checkSupportingDataFolder
-
-  # Copy instream flow reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/InstreamFlowReaches ${folder}
-}
-
-copyIrrigatedLands() {
-  checkSupportingDataFolder
-
-  # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/IrrigatedLands ${folder}
-}
-
-copyMainConfig() {
+copy_MainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
     echo "Creating folder ${appFolder}"
@@ -61,18 +63,32 @@ copyMainConfig() {
   cp -rv ${scriptFolder}/img ${appFolder}
 }
 
-copyStreamReaches() {
-  checkSupportingDataFolder
-
-  # Copy stream reaches map folder and files
-  cp -rv ${scriptFolder}/data-maps/SupportingData/StreamReaches ${folder}
-}
-
-copyWaterDistricts() {
-  checkSupportingDataFolder
+copy_SupportingData_CoDwrWaterDistricts() {
+  check_SupportingData_Folder
 
   # Copy stream reaches map folder and files
   cp -rv ${scriptFolder}/data-maps/SupportingData/CoDwrWaterDistricts ${folder}
+}
+
+copy_SupportingData_InstreamFlowReaches() {
+  check_SupportingData_Folder
+
+  # Copy instream flow reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/InstreamFlowReaches ${folder}
+}
+
+copy_SupportingData_IrrigatedLands() {
+  check_SupportingData_Folder
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/IrrigatedLands ${folder}
+}
+
+copy_SupportingData_StreamReaches() {
+  check_SupportingData_Folder
+
+  # Copy stream reaches map folder and files
+  cp -rv ${scriptFolder}/data-maps/SupportingData/StreamReaches ${folder}
 }
 
 runInteractive() {
@@ -80,31 +96,47 @@ runInteractive() {
     echo ""
     echo "Enter an option to update application data."
     echo ""
-    echo " c.  Copy main configuration files."
-    echo "si.  Copy SupportingData/InstreamFlowReaches map files."
-    echo "sl.  Copy SupportingData/IrrigatedLands map files."
-    echo "ss.  Copy SupportingData/StreamReaches map files."
-    echo "sw.  Copy SupportingData/CoDwrWaterDistricts map files."
+    echo "Main Configuration:    c.  Copy main configuration files."
+    echo "                       q.  Quit"
     echo ""
-    echo "h.   Copy HistoricalSimulation/cm2015H2 map files."
+    echo "Supporting Data:      sw.  Copy CoDwrWaterDistricts files."
+    echo "                      ss.  Copy StreamReaches files."
+    echo "                      si.  Copy InstreamFlowReaches files."
+    echo "                      sl.  Copy IrrigatedLands files."
     echo ""
-    echo "q.  Quit"
+    echo "Historical Simulation  h.  Copy cm2015H2 files."
+    echo ""
+    echo "Baseline Simulation    b.  Copy cm2015B files."
     echo ""
     read -p "Enter command: " answer
+
+    # List in order of application
+
     if [ "${answer}" = "c" ]; then
-      copyMainConfig
-    elif [ "${answer}" = "h" ]; then
-      copyCm2015H2
-    elif [ "${answer}" = "si" ]; then
-      copyInstreamFlowReaches
-    elif [ "${answer}" = "sl" ]; then
-      copyIrrigatedLands
-    elif [ "${answer}" = "ss" ]; then
-      copyStreamReaches
-    elif [ "${answer}" = "sw" ]; then
-      copyWaterDistricts
+      copy_MainConfig
     elif [ "${answer}" = "q" ]; then
       break
+
+    # Supporting Data
+
+    elif [ "${answer}" = "sw" ]; then
+      copy_SupportingData_CoDwrWaterDistricts
+    elif [ "${answer}" = "si" ]; then
+      copy_SupportingData_InstreamFlowReaches
+    elif [ "${answer}" = "sl" ]; then
+      copy_SupportingData_IrrigatedLands
+    elif [ "${answer}" = "ss" ]; then
+      copy_SupportingData_StreamReaches
+
+    # Historical Simulation
+
+    elif [ "${answer}" = "h" ]; then
+      copy_HistoricalSimulation_cm2015H2
+
+    # Baseline Simulation
+
+    elif [ "${answer}" = "b" ]; then
+      copy_BaselineSimulation_cm2015B
     fi
   done
   return 0
