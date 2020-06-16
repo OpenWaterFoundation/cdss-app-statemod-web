@@ -51,21 +51,21 @@ SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="St
 ReadGeoLayerFromGeoJSON(InputFile="layers/diversions.geojson",GeoLayerID="DiversionLayer",Name="Diversions",Description="Diversions")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="DiversionGroup",Name="Diversions",Description="Diversions",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayer",Name="Diversions",Description="Diversions")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayer",Name="Diversions",Description="Diversions",Properties="symbolShape:Square,color:black,fillColor:black,size:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayer",Name="Diversions",Description="Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Reservoir stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: ReservoirGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/reservoirs.geojson",GeoLayerID="ReservoirLayer",Name="Reservoirs",Description="Reservoirs")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="ReservoirGroup",Name="Reservoirs",Description="Reservoirs",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="ReservoirLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs",Properties="symbolShape:Triangle-Up,color:black,fillColor:green,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs",Properties="symbolShape:Triangle-Up,color:black,fillColor:green,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Streamflow stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamflowGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/streamgages.geojson",GeoLayerID="StreamflowLayer",Name="Streamflow Stations",Description="Streamflow Stations")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamflowGroup",Name="Streamflow Stations",Description="Streamflow Stations",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations",Properties="symbolShape:Circle,color:black,fillColor:red,size:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions

@@ -40,7 +40,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="I
 # GeoLayerViewGroupID: InstreamReachesGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-termini.geojson",GeoLayerID="InstreamTerminiLayer",Name="Upper Colorado Instream Flow Reach Termini",Description="Upper Colorado Instream Flow Reach Termini")
 AddGeoLayerViewToGeoMap(GeoLayerID="InstreamTerminiLayer",GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Upper Colorado Instream Flow Reach Termini",Description="Upper Colorado Instream Flow Reach Termini")
-SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Upper Colorado Instream Flow Reach Termini",Description="Upper Colorado Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,size:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewSingleSymbol(GeoMapID="InstreamReachesMap",GeoLayerViewGroupID="InstreamReachesGroup",GeoLayerViewID="InstreamTerminiLayerView",Name="Upper Colorado Instream Flow Reach Termini",Description="Upper Colorado Instream Flow Reach Termini shown as cyan diamond",Properties="symbolShape:Diamond,color:cyan,fillColor:cyan,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
