@@ -1,11 +1,11 @@
-# CDSS Colorado (cm2015) Dataset #
+# Upper Colorado Water Allocation Model #
 
 **This is a demonstration project.**
 This website provides a simple map-based interface to Colorado's Decision Support Systems (CDSS) Upper Colorado
-water allocation model (StateMod) dataset.
-This website allows viewing the model input and output without having to download the dataset and software and and run the model.
+water allocation model `cm2015` dataset for the StateMod software.
+This website allows viewing the model input and output without having to download the dataset and software and run the model.
 
-### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** ###
+##### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** #####
 
 The information on this website was created as follows:
 
@@ -22,6 +22,6 @@ that is suitable for water resources planning.
 See the [Upper Colorado Model Documentation](https://dnrweblink.state.co.us/cwcb/0/doc/200075/Electronic.aspx?searchid=d8eca6f8-7cfe-4ddf-9788-5886fd932c8c)
 for detailed information about the model (**Warning:  PDF can be slow to download/view**).
 
-See the ***About this Project*** menu for details about project implementation.
+See the ***Resources / About this Project*** menu for details about project implementation.
 
-### **This website is under development.  Disabled menus are an outline for features that are being phased in.** ###
+##### **This website is under development.  Disabled menus are an outline for features that are being phased in.** #####

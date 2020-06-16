@@ -1,7 +1,7 @@
 # About the Project #
 
 This web application provides a simple interface for the Upper Colorado basin water allocation model dataset
-available from Colorado's Decision Support Systems.
+available from Colorado's Decision Support Systems (CDSS).
 The project was funded by a Colorado Water Conservation Board (CWCB) Severance Tax grant.
 
 This web application relies on pre-generated files that have been uploaded to the cloud.
@@ -11,7 +11,7 @@ Model node map features can be clicked on to provide access to time series data 
 Due to the complexity of data preparation and running the model, the model input cannot be changed and
 the model cannot be run from this website.
 
-### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** ###
+##### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** #####
 
 This website and content published on the website use the following resources, as of the web application update (June 2020).
 
@@ -34,4 +34,4 @@ OWF has worked for years to develop water resources tools such as
 and recently [OpenCDSS](http://opencdss.state.co.us/opencdss/),
 which is the open source initiative for CDSS software tools.
 
-### **This website is under development and is using the Upper Colorado as a demonstration.** ###
+##### **This website is under development and is using the Upper Colorado as a demonstration.** #####
