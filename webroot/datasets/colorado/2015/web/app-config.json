@@ -1,6 +1,7 @@
 {
   "title": "Upper Colorado Water Allocation Model",
   "homePage": "/content-pages/home.md",
+  "favicon": "/img/co-logo-32x32.ico",
   "version": "0.1.0 (2020-06-07)",
   "mainMenu": [
     {
@@ -80,7 +81,7 @@
       "menus" : [
         {
           "id": "cm2015-historical",
-          "name": "Historical (cm2015 H & H2) Dataset Map",
+          "name": "Historical (cm2015 H2) Dataset Map",
           "action": "displayMap",
           "mapProject": "data-maps/HistoricalSimulation/cm2015H2/cm2015-historical-map.json"
         },
@@ -117,7 +118,7 @@
       "align": "left",
       "menus" : [
         {
-          "id": "b-system-map",
+          "id": "cm2015-baseline",
           "name": "Baseline (cm2015 B) Dataset Map",
           "action": "displayMap",
           "mapProject": "data-maps/BaselineSimulation/cm2015B/cm2015-baseline-map.json"
@@ -135,6 +136,13 @@
           "action": "contentPage",
           "align": "right",
           "markdownFile": "content-pages/about-the-project.md"
+        },
+        {
+          "id": "infomapper-doc",
+          "name": "InfoMapper Documentation",
+          "action": "externalLink",
+          "align": "right",
+          "url": "http://software.openwaterfoundation.org/infomapper/latest/doc-user/"
         },
         {
           "id": "contact",

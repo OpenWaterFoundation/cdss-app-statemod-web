@@ -36,14 +36,14 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="
 # Use the Stream reaches group for instream and stream reaches
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="InstreamReachesLayerView",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches",Properties="color:#00ffff,weight:5")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamReachesGroup
 CopyFile(SourceFile="../../SupportingData/StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
-AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
+AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",InsertPosition="Top")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="color:#6297f7")
 # SetGeoLayerViewCategorizedSymbol(GeoMapID="cm2015BaselineMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
 # = = = = = = = = = =
 # Diversion stations:  read layer and add to a layer view group.
