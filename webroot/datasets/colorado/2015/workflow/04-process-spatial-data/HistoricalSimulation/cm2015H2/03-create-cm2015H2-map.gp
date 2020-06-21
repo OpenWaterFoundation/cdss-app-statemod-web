@@ -50,8 +50,9 @@ SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="
 # GeoLayerViewGroupID: DiversionGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/diversions.geojson",GeoLayerID="DiversionLayer",Name="Diversions",Description="Diversions")
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",Name="Diversions",Description="Diversions",Properties="selectedInitial: true",InsertPosition="Top")
-AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayer",Name="Diversions",Description="Diversions")
-SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayer",Name="Diversions",Description="Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Diversions",Description="Diversions")
+SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",Name="Diversions",Description="Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewEventHandler(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="DiversionGroup",GeoLayerViewID="DiversionLayerView",EventType="click",Properties="popupConfigPath:graphs/diversion-popup-config.json")
 # = = = = = = = = = =
 # Reservoir stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: ReservoirGroup
@@ -67,13 +68,19 @@ AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID=
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations")
 SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
 # = = = = = = = = = =
-# Write the map project file and copy layers to the location needed by the web application.
+# Write the map project file and copy files to the location needed by the web application.
 # - follow InfoMapper conventions
 WriteGeoMapProjectToJSON(GeoMapProjectID="cm2015HistoricalProject",Indent="2",OutputFile="cm2015-historical-map.json")
-CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="cm2015-historical-map.json",DestinationFile="${MapFolder}/cm2015-historical-map.json")
+# Layers
+CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
 CopyFile(SourceFile="layers/reservoirs.geojson",DestinationFile="${MapFolder}/layers/reservoirs.geojson")
 CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
+# Graphs
+CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
+CopyFile(SourceFile="graphs/diversion-popup-config.json",DestinationFile="${MapFolder}/graphs/diversion-popup-config.json")
+CopyFile(SourceFile="graphs/diversion-demand-graph-template.json",DestinationFile="${MapFolder}/graphs/diversion-demand-graph-template.json")
+CopyFile(SourceFile="graphs/diversion-historical-graph-template.json",DestinationFile="${MapFolder}/graphs/diversion-historical-graph-template.json")

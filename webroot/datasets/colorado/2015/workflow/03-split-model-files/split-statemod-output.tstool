@@ -8,12 +8,15 @@
 SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
 # Name of the dataset, which is the base name for data files.
 SetProperty(PropertyName="DatasetName",PropertyType=String,PropertyValue="cm2015")
-# Location of output for b43 time series (diversions, instream, and stream nodes)
-SetProperty(PropertyName="WebOutputFlowNodesFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/flownodes")
-CreateFolder(Folder="${WebOutputFlowNodesFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
-# Location of output for b44 time series (reservoir nodes)
-SetProperty(PropertyName="WebOutputReservoirsFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/reservoirs")
-CreateFolder(Folder="${WebOutputReservoirsFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# Set WriteTimeSeries property to control whether time series are output:
+# - if set to true, the time series be written and will be freed for each file so only
+#   time series from one file are processed at a time, used in production
+# - if set to false, time series will not be written and time series will not be freed,
+#   used in development and troubleshooting - TODO smalers 2020-06-20 CopyTimeSeriesPropertiesToTable does too many
+# - uncomment one or the other of the following
+SetProperty(PropertyName="WriteTimeSeries",PropertyType=Boolean,PropertyValue="true")
+# SetProperty(PropertyName="WriteTimeSeries",PropertyType=Boolean,PropertyValue="false")
 #
 #====================================
 # H2 run
@@ -22,17 +25,29 @@ CreateFolder(Folder="${WebOutputReservoirsFolder}",CreateParentFolders=True,IfFo
 #
 ReadStateModB(InputFile="${StateModFolder}/${DatasetName}H2.b43",IncludeDataTypes="Available_Flow,Consumptive_Use,River_Inflow,River_Outflow",Alias="%L.StateMod.%T.Month.H2")
 CopyTimeSeriesPropertiesToTable(TableID="H2b43_Table",TableTSIDColumn="TSID")
+SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/b43")
+CreateFolder(Folder="${WebOutputFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+If(Name="Write_H2b43",Condition="${WriteTimeSeries} == true")
 For(Name="H2b43_Table",IteratorProperty="TSID",TableID="H2b43_Table",TableColumn="TSID")
-WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFlowNodesFolder}/${TSID}.stm")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFolder}/${TSID}.stm")
 EndFor(Name="H2b43_Table")
+Free()
+EndIf(Name="Write_H2b43")
+#
 #====================================
 # Reservoir station output file, H2 run (b44)
 #
 ReadStateModB(InputFile="${StateModFolder}/${DatasetName}H2.b44",IncludeDataTypes="Sim_EOM,Initial_Storage,River_Inflow,Seep_Spill,Total_Release",Alias="%L.StateMod.%T.Month.H2")
 CopyTimeSeriesPropertiesToTable(TableID="H2b44_Table",TableTSIDColumn="TSID")
+SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/b44")
+CreateFolder(Folder="${WebOutputFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+If(Name="Write_H2b44",Condition="${WriteTimeSeries} == true")
 For(Name="H2b44_Table",IteratorProperty="TSID",TableID="H2b44_Table",TableColumn="TSID")
-WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputReservoirsFolder}/${TSID}.stm")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFolder}/${TSID}.stm")
 EndFor(Name="H2b44_Table")
+Free()
+EndIf(Name="Write_H2b44")
+#
 #====================================
 # B run
 #====================================
@@ -40,14 +55,25 @@ EndFor(Name="H2b44_Table")
 #
 ReadStateModB(InputFile="${StateModFolder}/${DatasetName}B.b43",IncludeDataTypes="Available_Flow,Consumptive_Use,River_Inflow,River_Outflow",Alias="%L.StateMod.%T.Month.B")
 CopyTimeSeriesPropertiesToTable(TableID="Bb43_Table",TableTSIDColumn="TSID")
+SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/b43")
+CreateFolder(Folder="${WebOutputFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+If(Name="Write_Bb43",Condition="${WriteTimeSeries} == true")
 For(Name="Bb43_Table",IteratorProperty="TSID",TableID="Bb43_Table",TableColumn="TSID")
-WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFlowNodesFolder}/${TSID}.stm")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFolder}/${TSID}.stm")
 EndFor(Name="Bb43_Table")
+Free()
+EndIf(Name="Write_Bb43")
+#
 #====================================
 # Reservoir station output file, B run (b44)
 #
 ReadStateModB(InputFile="${StateModFolder}/${DatasetName}B.b44",IncludeDataTypes="Sim_EOM,Initial_Storage,River_Inflow,Seep_Spill,Total_Release",Alias="%L.StateMod.%T.Month.B")
 CopyTimeSeriesPropertiesToTable(TableID="Bb44_Table",TableTSIDColumn="TSID")
+SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/b44")
+CreateFolder(Folder="${WebOutputFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+If(Name="Write_Bb44",Condition="${WriteTimeSeries} == true")
 For(Name="Bb44_Table",IteratorProperty="TSID",TableID="Bb44_Table",TableColumn="TSID")
-WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputReservoirsFolder}/${TSID}.stm")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebOutputFolder}/${TSID}.stm")
 EndFor(Name="Bb44_Table")
+Free()
+EndIf(Name="Write_Bb44")
