@@ -32,11 +32,37 @@ rem 'StateMod' folder where files exist
 set statemodFolder=%versionFolder%\StateMod
 
 rem 'StateMod' executable program
+rem - the workflow to create web products downloads StateMod into 'bin' folder,
+rem   but dataset may have StateMod executable in the StateMod folder if a
+rem   newer dataset installer is used
 rem - currently this is hard-coded but may make configurable in the future,
 rem   for example add to response file to ensure that a proper version is used.
 rem - would be better to verify the version and not depend on the filename,
 rem   so that statemod -v could be run and compared
-set statemodExe=%versionFolder%\bin\StateMod_Model_15.exe
+rem - TODO smalers 2020-06-19 need to evaluate how to handle finding
+rem   StateMod executables other than those known below,
+rem   or stick with a specific known working version
+set statemodExe=unknown
+if exist "%versionFolder%\StateMod\StateMod_Model_15.exe" (
+  set statemodExe=%versionFolder%\StateMod\StateMod_Model_15.exe
+) else (
+  if exist "%versionFolder%\bin\StateMod_Model_15.exe" (
+    rem Default
+    set statemodExe=%versionFolder%\bin\StateMod_Model_15.exe
+  )
+)
+
+rem Make sure that StateMod executable exists
+if "%stateModExe%"=="unknown" (
+  echo Unable to find StateMod executable to run.
+  goto exit1
+) else (
+  if not exist "%stateModExe%" (
+    rem Test again just in case
+    echo StateMod executable does not exist:  %stateModExe%
+    goto exit1
+  )
+)
 
 rem Dataset name (e.g., 'cm2015')
 rem - TODO smalers 2020-06-05 need to get from, taken from the '*.ctl' file without the extension
