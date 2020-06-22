@@ -60,6 +60,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/reservoirs.geojson",GeoLayerID="Reserv
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="ReservoirGroup",Name="Reservoirs",Description="Reservoirs",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="ReservoirLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs")
 SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs",Properties="symbolShape:Triangle-Up,color:black,fillColor:green,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewEventHandler(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="ReservoirGroup",GeoLayerViewID="ReservoirLayerView",EventType="click",Properties="popupConfigPath:graphs/reservoir-popup-config.json")
 # = = = = = = = = = =
 # Streamflow stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamflowGroup
@@ -83,11 +84,18 @@ CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/la
 # -----------------
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
-# ... for diversions
+# ... diversions
 CopyFile(SourceFile="graphs/diversion-popup-config.json",DestinationFile="${MapFolder}/graphs/diversion-popup-config.json")
 CopyFile(SourceFile="graphs/diversion-DiversionDemand-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionDemand-graph-config.json")
 CopyFile(SourceFile="graphs/diversion-DiversionHistorical-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionHistorical-graph-config.json")
-# ... for streamgages
+CopyFile(SourceFile="graphs/diversion-Available_Flow-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-Available_Flow-graph-config.json")
+# ... reservoirs
+CopyFile(SourceFile="graphs/reservoir-popup-config.json",DestinationFile="${MapFolder}/graphs/reservoir-popup-config.json")
+CopyFile(SourceFile="graphs/reservoir-Target-graph-config.json",DestinationFile="${MapFolder}/graphs/reservoir-Target-graph-config.json")
+CopyFile(SourceFile="graphs/reservoir-EOM-graph-config.json",DestinationFile="${MapFolder}/graphs/reservoir-EOM-graph-config.json")
+# ... streamgages
 CopyFile(SourceFile="graphs/streamgage-popup-config.json",DestinationFile="${MapFolder}/graphs/streamgage-popup-config.json")
 CopyFile(SourceFile="graphs/streamgage-historical-graph-config.json",DestinationFile="${MapFolder}/graphs/streamgage-historical-graph-config.json")
 CopyFile(SourceFile="graphs/streamgage-Available_Flow-graph-config.json",DestinationFile="${MapFolder}/graphs/streamgage-Available_Flow-graph-config.json")
+# ... baseflow
+# TODO smalers 2020-06-22 need to enable

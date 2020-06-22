@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:station_name}) - Simulated Available Flow",
+      "MainTitleString" : "StationId (StationName) - Reservoir End of Month Storage",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
@@ -119,8 +119,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:StateModStationId}-Available_Flow-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Streamflow.Month~StateMod~/data-ts/input/stream/${featureAttribute:StateModStationId}.StateMod.Available_Flow.Month.stm",
+          "TSAlias" : "3603543-EOM-Month",
+          "TSID" : "3603543...MONTH~StateMod~C:\\Users\\sam\\cdss-dev\\StateMod-Web\\git-repos\\cdss-app-statemod-web\\webroot\\datasets\\colorado\\2015\\web/data-ts/input/reservoirs/3603543.StateMod.EOM.Month.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

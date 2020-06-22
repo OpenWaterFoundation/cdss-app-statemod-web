@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:StateModStationName}) - Natural Flow",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:station_name}) - Natural Flow",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",

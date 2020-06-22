@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:StateModStationName}) - Diversion Demand",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:str_name}) - Diversion Demand",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
