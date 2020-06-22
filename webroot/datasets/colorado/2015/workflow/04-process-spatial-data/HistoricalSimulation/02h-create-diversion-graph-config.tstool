@@ -22,7 +22,7 @@ ProcessTSProduct(TSProductFile="graphs/diversion-DiversionHistorical-graph-confi
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
-TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
+TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",SearchFor="3600507-DiversionHistorical",ReplaceWith="\$\{featureAttribute:StateModStationId}-DiversionHistorical",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",SearchFor="3600507.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionHistorical\.Month~StateMod~/data-ts/input/diversions/\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionHistorical\.Month\.stm",OutputFile="graphs\diversion-DiversionHistorical-graph-config.json")
@@ -40,7 +40,7 @@ ProcessTSProduct(TSProductFile="graphs/diversion-DiversionDemand-graph-config.ts
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
-TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
+TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config.json",SearchFor="3600507-DiversionDemand",ReplaceWith="\$\{featureAttribute:StateModStationId}-DiversionDemand",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
 TextEdit(InputFile="graphs\diversion-DiversionDemand-graph-config.json",SearchFor="3600507.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionDemand\.Month~StateMod~/data-ts/input/diversions/\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionDemand\.Month\.stm",OutputFile="graphs\diversion-DiversionDemand-graph-config.json")
@@ -58,7 +58,7 @@ ProcessTSProduct(TSProductFile="graphs/diversion-Available_Flow-graph-config.tsp
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
 # - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
-TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="3600507-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="3600507.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month~StateMod~/data-ts/output/b43/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2\.stm",OutputFile="graphs\diversion-Available_Flow-graph-config.json")

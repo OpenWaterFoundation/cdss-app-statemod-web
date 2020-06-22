@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:StateModStationName}) - Historical Monthly Streamflow Volume",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:station_name}) - Historical Monthly Streamflow Volume",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",

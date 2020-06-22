@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:station_name}) - Simulated Available Flow",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:str_name}) - Reservoir End of Month Storage",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
@@ -119,8 +119,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:StateModStationId}-Available_Flow-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Streamflow.Month~StateMod~/data-ts/input/stream/${featureAttribute:StateModStationId}.StateMod.Available_Flow.Month.stm",
+          "TSAlias" : "${featureAttribute:StateModStationId}-EOM-Month",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.EOM.Month~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.EOM.Month.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

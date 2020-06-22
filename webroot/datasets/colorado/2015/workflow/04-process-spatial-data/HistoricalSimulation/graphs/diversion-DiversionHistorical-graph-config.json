@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:StateModStationName}) - Historical Diversions",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:str_name}) - Historical Diversions",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",

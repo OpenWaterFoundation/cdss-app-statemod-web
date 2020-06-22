@@ -10,7 +10,7 @@
       "MainTitleFontName" : "Arial",
       "MainTitleFontSize" : "20",
       "MainTitleFontStyle" : "Plain",
-      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:StateModStationName}) - Simulated Available Flow",
+      "MainTitleString" : "${featureAttribute:StateModStationId} (${featureAttribute:str_name}) - Simulated Available Flow",
       "ProductID" : "Product1",
       "ProductName" : "",
       "ProductType" : "Graph",
