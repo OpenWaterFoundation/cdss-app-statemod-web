@@ -1,0 +1,27 @@
+{
+  "id" : "diversion-popup-config",
+  "name": "Diversion popup configuration",
+  "description":  "List main attributes and provide buttons to graph time series.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+      {
+        "action" : "graph",
+        "label" : "Demand",
+        "productPath" : "graphs/diversion-DiversionDemand-graph-config.json"
+      },
+      {
+        "action" : "graph",
+        "label" : "Historical",
+        "productPath" : "graphs/diversion-DiversionHistorical-graph-config.json"
+      },
+      {
+        "action" : "graph",
+        "label" : "Available Flow",
+        "productPath" : "graphs/diversion-Available_Flow-graph-config.json"
+      }
+  ]
+}

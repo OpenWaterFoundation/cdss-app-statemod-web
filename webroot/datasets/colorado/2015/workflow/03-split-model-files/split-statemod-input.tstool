@@ -202,3 +202,21 @@ WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebStreamDataF
 EndFor(Name="rih_Table")
 Free()
 EndIf(Name="Write_rih")
+#
+#====================================
+# All - baseflow (natural flow)
+#
+# - store with stream data
+#
+SetProperty(PropertyName="WebStreamDataFolder",PropertyType=String,PropertyValue="../../web/data-ts/input/stream")
+CreateFolder(Folder="${WebStreamDataFolder}",CreateParentFolders=True,IfFolderExists=Ignore)
+#
+# baseflow volume, monthly (xbm)
+ReadStateMod(InputFile="${StateModFolder}/${DatasetName}x.xbm",Alias="%L.StateMod.NaturalFlow.Month")
+CopyTimeSeriesPropertiesToTable(TableID="xbm_Table",TableTSIDColumn="TSID")
+If(Name="Write_xbm",Condition="${WriteTimeSeries} == true")
+For(Name="xbm_Table",IteratorProperty="TSID",TableID="xbm_Table",TableColumn="TSID")
+WriteStateMod(TSList=AllMatchingTSID,TSID="${TSID}",OutputFile="${WebStreamDataFolder}/${TSID}.stm")
+EndFor(Name="xbm_Table")
+Free()
+EndIf(Name="Write_xbm")

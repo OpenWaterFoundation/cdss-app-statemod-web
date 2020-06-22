@@ -83,7 +83,7 @@
           "id": "cm2015-historical",
           "name": "Historical (cm2015 H2) Dataset Map",
           "action": "displayMap",
-          "mapProject": "data-maps/HistoricalSimulation/cm2015H2/cm2015-historical-map.json"
+          "mapProject": "data-maps/HistoricalSimulation/cm2015-historical-map.json"
         },
         {
           "comment": "Link to CDSS Upper Colorado User's Manual.",
