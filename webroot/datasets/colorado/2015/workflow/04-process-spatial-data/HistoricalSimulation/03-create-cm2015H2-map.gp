@@ -6,9 +6,9 @@
 # Define properties to control processing.
 # - use relative paths so that the command file is portable
 # - AssetsFolder is where map files exist for the InfoMapper tool
-SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../../web")
+SetProperty(PropertyName="AppFolder",PropertyType="str",PropertyValue="../../../web")
 SetProperty(PropertyName="MapsFolder",PropertyType="str",PropertyValue="${AppFolder}/data-maps")
-SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/HistoricalSimulation/cm2015H2")
+SetProperty(PropertyName="MapFolder",PropertyType="str",PropertyValue="${MapsFolder}/HistoricalSimulation")
 #
 # Create a single map project and map for that project.
 # - GeoMapProjectID:  cm2015HistoricalProject
@@ -31,7 +31,7 @@ AddGeoLayerViewToGeoMap(GeoLayerID="MapBoxStreets&SatelliteLayer",GeoMapID="cm20
 # = = = = = = = = = =
 # Instream flow reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: InstreamReachesGroup
-CopyFile(SourceFile="../../SupportingData/InstreamFlowReaches/layers/instream-reaches.geojson",DestinationFile="layers/instream-reaches.geojson")
+CopyFile(SourceFile="../SupportingData/InstreamFlowReaches/layers/instream-reaches.geojson",DestinationFile="layers/instream-reaches.geojson")
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Upper Colorado Instream Flow Reaches",Description="Upper Colorado Instream Flow Reaches")
 # Use the Stream reaches group for instream and stream reaches
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamReachesGroup",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="selectedInitial: true",InsertPosition="Top")
@@ -40,7 +40,7 @@ SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamReachesGroup
-CopyFile(SourceFile="../../SupportingData/StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
+CopyFile(SourceFile="../SupportingData/StreamReaches/layers/stream-reaches.geojson",DestinationFile="layers/stream-reaches.geojson")
 ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="StreamReachesLayer",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",InsertPosition="Top")
 SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamReachesGroup",GeoLayerViewID="StreamReachesLayerView",Name="Upper Colorado Stream Reaches",Description="Upper Colorado Stream Reaches",Properties="color:#6297f7")
@@ -67,6 +67,7 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/streamgages.geojson",GeoLayerID="Strea
 AddGeoLayerViewGroupToGeoMap(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",Name="Streamflow Stations",Description="Streamflow Stations",Properties="selectedInitial: true",InsertPosition="Top")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations")
 SetGeoLayerViewSingleSymbol(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
+SetGeoLayerViewEventHandler(GeoMapID="cm2015HistoricalMap",GeoLayerViewGroupID="StreamflowGroup",GeoLayerViewID="StreamflowLayerView",EventType="click",Properties="popupConfigPath:graphs/streamgage-popup-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy files to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -79,8 +80,14 @@ CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
 CopyFile(SourceFile="layers/reservoirs.geojson",DestinationFile="${MapFolder}/layers/reservoirs.geojson")
 CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
+# -----------------
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
+# ... for diversions
 CopyFile(SourceFile="graphs/diversion-popup-config.json",DestinationFile="${MapFolder}/graphs/diversion-popup-config.json")
-CopyFile(SourceFile="graphs/diversion-demand-graph-template.json",DestinationFile="${MapFolder}/graphs/diversion-demand-graph-template.json")
-CopyFile(SourceFile="graphs/diversion-historical-graph-template.json",DestinationFile="${MapFolder}/graphs/diversion-historical-graph-template.json")
+CopyFile(SourceFile="graphs/diversion-DiversionDemand-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionDemand-graph-config.json")
+CopyFile(SourceFile="graphs/diversion-DiversionHistorical-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionHistorical-graph-config.json")
+# ... for streamgages
+CopyFile(SourceFile="graphs/streamgage-popup-config.json",DestinationFile="${MapFolder}/graphs/streamgage-popup-config.json")
+CopyFile(SourceFile="graphs/streamgage-historical-graph-config.json",DestinationFile="${MapFolder}/graphs/streamgage-historical-graph-config.json")
+CopyFile(SourceFile="graphs/streamgage-Available_Flow-graph-config.json",DestinationFile="${MapFolder}/graphs/streamgage-Available_Flow-graph-config.json")

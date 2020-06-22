@@ -88,23 +88,23 @@
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
 
-# HistoricalSimulation/cm2015H2
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/downloads/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/downloads/README.md
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/README.md
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/layers/*.csv
+# HistoricalSimulation/
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/*.csv
 # Dynamic map configurations
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/cm2015H2/*.json
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/*.json
 
-# BaselineSimulation/cm2015B
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/downloads/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/downloads/README.md
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/*
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/README.md
-!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/layers/*.csv
+# BaselineSimulation/
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/downloads/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/downloads/README.md
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/*
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/README.md
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/*.csv
 # Dynamic map configurations
-/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/cm2015B/*.json
+/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/*.json
 
 # =========================================
 # Gunnison 2015 dataset

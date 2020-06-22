@@ -1,0 +1,22 @@
+{
+  "id" : "streamgage-popup-config",
+  "name": "Streamgage popup configuration",
+  "description":  "List main attributes and provide buttons to graph time series.",
+  "layerAttributes" : {
+    "include" : [ "*" ],
+    "exclude" : [],
+    "formats": []
+  },
+  "actions": [
+      {
+        "action" : "graph",
+        "label" : "Available Flow",
+        "productPath" : "graphs/streamgage-Available_Flow-graph-config.json"
+      },
+      {
+        "action" : "graph",
+        "label" : "Historical",
+        "productPath" : "graphs/streamgage-historical-graph-config.json"
+      }
+  ]
+}

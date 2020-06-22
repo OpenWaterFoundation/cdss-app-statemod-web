@@ -1,0 +1,65 @@
+# Create graph configurations for website
+# - read one or more typical time series to create a graph for a node type, e.g., diversion
+# - use the ProcessTSProduct command to write the full JSON configuration for the graph
+# - use the TextEdit command to turn the graph into a template that can be used for all similar nodes
+# - define s many graph configurations as are needed in the popup configuration
+#
+# Folders where time series were written for the web application
+# - use this to graph data to create an initial prototype
+SetProperty(PropertyName="WebInputStreamFolder",PropertyType=String,PropertyValue="../../../web/data-ts/input/stream")
+SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../../web/data-ts/output")
+#
+#================================================
+# Graph of historical streamflow (StreamFlow), from input.
+#
+# Read the single time series
+ReadStateMod(InputFile="${WebInputStreamFolder}/09010500.StateMod.Streamflow.Month.stm",Alias="%L-Streamflow-Month")
+#
+# Process the graph using the previously-saved tsp file and output full configuration as json
+# - it is required to actually generate a product to fill out properties, so create a png
+ProcessTSProduct(TSProductFile="graphs/streamgage-historical-graph-config.tsp",View=False,OutputFile="graphs/streamgage-historical-graph-prototype.png",OutputProductFile="graphs/streamgage-historical-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+# - always convert to Linux-like line endings if processing full lines to simplify processing
+TextEdit(InputFile="graphs\streamgage-historical-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\streamgage-historical-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\streamgage-historical-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-historical-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="09010500-Streamflow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Streamflow",OutputFile="graphs\streamgage-historical-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month\.stm",OutputFile="graphs\streamgage-historical-graph-config.json")
+#
+#================================================
+# Graph of NaturalFlow, from input.
+# - stream gages and some other nodes
+#
+# Read the single time series
+ReadStateMod(InputFile="${WebInputStreamFolder}/09010500.StateMod.NaturalFlow.Month.stm",Alias="%L-NaturalFlow-Month")
+#
+# Process the graph using the previously-saved tsp file and output full configuration as json
+# - it is required to actually generate a product to fill out properties, so create a png
+ProcessTSProduct(TSProductFile="graphs/node-NaturalFlow-graph-config.tsp",View=False,OutputFile="graphs/node-NaturalFlow-graph-prototype.png",OutputProductFile="graphs/node-NaturalFlow-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+# - always convert to Linux-like line endings if processing full lines to simplify processing
+TextEdit(InputFile="graphs\node-NaturalFlow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="09010500-NaturalFlow",ReplaceWith="\$\{featureAttribute:StateModStationId}-NaturalFlow",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.NaturalFlow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.NaturalFlow\.Month\.stm",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+#
+#================================================
+# Graph of Available_Flow from output.
+# Read the single time series
+#
+ReadStateMod(InputFile="${WebOutputFolder}/b43/09010500.StateMod.Available_Flow.Month.H2.stm",Alias="%L-Available_Flow-Month")
+#
+# Process the graph using the previously-saved tsp file and output full configuration as json
+# - it is required to actually generate a product to fill out properties, so create a png
+ProcessTSProduct(TSProductFile="graphs/streamgage-Available_Flow-graph-config.tsp",View=False,OutputFile="graphs/streamgage-Available_Flow-graph-prototype.png",OutputProductFile="graphs/streamgage-Available_Flow-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+# - always convert to Linux-like line endings if processing full lines to simplify processing
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:StateModStationName}",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="09010500-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.stm",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")

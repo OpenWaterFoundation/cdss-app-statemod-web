@@ -21,6 +21,17 @@ checkDataMapsBaselineSimulationFolder() {
 # Make sure that the receiving folder exists.
 # - call before trying to copy to the folder
 # - set ${folder} to the receiving folder
+checkDataMapsFolder() {
+  folder=${appFolder}/data-maps
+  if [ ! -d "${folder}" ]; then
+    echo "Creating folder ${folder}"
+    mkdir -p ${folder}
+  fi
+}
+
+# Make sure that the receiving folder exists.
+# - call before trying to copy to the folder
+# - set ${folder} to the receiving folder
 checkDataMapsHistoricalSimulationFolder() {
   folder=${appFolder}/data-maps/HistoricalSimulation
   if [ ! -d "${folder}" ]; then
@@ -96,6 +107,8 @@ copyMainConfig() {
   else
     cp -r${verboseOption} ${scriptFolder}/img ${appFolder}
   fi
+  # Output the following regardless of whether verbose or not.
+  echo "Copied main configuration files."
 
   return 0
 }
@@ -148,7 +161,9 @@ copySimulationInputTs() {
     return 1
   fi
   cp -r${verboseOption} ${sourceFolder} ${folder}
-  return $?
+  exitCode=$?
+  echo "Copied ${datasetName} ${dataFolder} input time series files."
+  return $exitCode
 }
 
 # Copy simulation output time series.
@@ -208,12 +223,14 @@ copySimulationOutputTs() {
     return 1
   fi
   cp -r${verboseOption} ${sourceFolder} ${folder}
-  return $?
+  exitCode=$?
+  echo "Copied ${dataset} ${outputExt} output time series files."
+  return $exitCode
 }
 
 # Copy simulation maps, for example,
-#  from:  ${scriptFolder}/data-maps/HistoricalSimulation/${datset}${modifier}
-#  from:  ${scriptFolder}/data-maps/BaselineSimulation/${datset}${modifier}
+#  from:  ${scriptFolder}/data-maps/HistoricalSimulation
+#  from:  ${scriptFolder}/data-maps/BaselineSimulation
 #    to:  ${folder}
 #
 # - first argument is the dataset, e.g., "cm2015"
@@ -237,10 +254,13 @@ copySimulationMaps() {
     return 1
   fi
 
+  checkDataMapsFolder
   if [ "${modifier}" = "${historicalModifier}" ]; then
-    checkDataMapsHistoricalSimulationFolder
+    # OK
+    :
   elif [ "${modifier}" = "${baselineModifier}" ]; then
-    checkDataMapsBaselineSimulationFolder
+    # OK
+    :
   else
     echo "Unrecognized modifier:  ${modifier}"
     return 1
@@ -248,15 +268,18 @@ copySimulationMaps() {
 
   # Copy simulation map folder and files
   if [ "${modifier}" = "${historicalModifier}" ]; then
-    sourceFolder="${scriptFolder}/data-maps/HistoricalSimulation/${dataset}${modifier}"
+    simFolder="HistoricalSimulation"
   elif [ "${modifier}" = "${baselineModifier}" ]; then
-    sourceFolder="${scriptFolder}/data-maps/BaselineSimulation/${dataset}${modifier}"
+    simFolder="BaselineSimulation"
   fi
+  sourceFolder="${scriptFolder}/data-maps/${simFolder}"
   if [ ! -d "${sourceFolder}" ]; then
     echo "Source folder does not exist:  ${sourceFolder}"
     return 1
   fi
   cp -r${verboseOption} ${sourceFolder} ${folder}
+  # Output the following regardless of whether verbose or not.
+  echo "Copied ${dataset} ${modifier} ${simFolder} map and graph files."
   return $?
 }
 
@@ -279,7 +302,9 @@ copyDataMapsSupportingData() {
     return 1
   fi
   cp -r${verboseOption} ${sourceFolder} ${folder}
-  return $?
+  exitCode=$?
+  echo "Copied ${dataset} ${mapFolder} supporting map files."
+  return $exitCode
 }
 
 runInteractive() {
@@ -289,20 +314,21 @@ runInteractive() {
     echo ""
     echo "Main Configuration:       c.  Copy main InfoMapper configuration files."
     echo "                          q.  Quit"
-    echo "                         vb.  Toggle verbose mode (currently ${verboseOn}."
+    echo "                          v.  Toggle verbose mode (currently ${verboseOn}."
     echo ""
     echo "Supporting Data:         sw.  Copy CoDwrWaterDistricts map files."
     echo "                         ss.  Copy StreamReaches map files."
     echo "                         si.  Copy InstreamFlowReaches map files."
     echo "                         sl.  Copy IrrigatedLands map files."
     echo ""
-    echo "Simulation maps:       hmap.  Copy ${datasetName}${historicalModifier} map files."
-    echo "                       bmap.  Copy ${datasetName}${baselineModifier} map files."
+    echo "Simulation maps:       hmap.  Copy ${datasetName}${historicalModifier} map and graph files."
+    echo "                       bmap.  Copy ${datasetName}${baselineModifier} map and graph files."
     echo ""
-    echo "Input time series       hcu.  Copy ${datasetName} culocations ts files."
-    echo "                       hdiv.  Copy ${datasetName} diversion ts files."
-    echo "                       hisf.  Copy ${datasetName} instream ts files."
-    echo "                       hres.  Copy ${datasetName} reservoir ts files."
+    echo "Input time series        cu.  Copy ${datasetName} culocations ts files."
+    echo "                        div.  Copy ${datasetName} diversion ts files."
+    echo "                        isf.  Copy ${datasetName} instream ts files."
+    echo "                        res.  Copy ${datasetName} reservoir ts files."
+    echo "                        str.  Copy ${datasetName} stream ts files."
     echo ""
     echo "Output time series.    hb43.  Copy ${datasetName} b43 ts files."
     echo "                       hb44.  Copy ${datasetName} b44 ts files."
@@ -317,7 +343,7 @@ runInteractive() {
     elif [ "${answer}" = "q" ]; then
       # Quit - break out of the loop
       break
-    elif [ "${answer}" = "vb" ]; then
+    elif [ "${answer}" = "v" ]; then
       if [ "${verboseOn}" = "true" ]; then
         verboseOn="false"
         verboseOption=""
@@ -346,14 +372,16 @@ runInteractive() {
 
     # Input time series
 
-    elif [ "${answer}" = "hcu" ]; then
+    elif [ "${answer}" = "cu" ]; then
       copySimulationInputTs culocations
-    elif [ "${answer}" = "hdiv" ]; then
+    elif [ "${answer}" = "div" ]; then
       copySimulationInputTs diversions
-    elif [ "${answer}" = "hisf" ]; then
+    elif [ "${answer}" = "isf" ]; then
       copySimulationInputTs instream
-    elif [ "${answer}" = "hres" ]; then
+    elif [ "${answer}" = "res" ]; then
       copySimulationInputTs reservoirs
+    elif [ "${answer}" = "str" ]; then
+      copySimulationInputTs stream
 
     # Simulation time series
 
