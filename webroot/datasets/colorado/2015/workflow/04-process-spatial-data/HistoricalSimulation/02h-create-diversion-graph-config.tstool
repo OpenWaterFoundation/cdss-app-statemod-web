@@ -13,7 +13,7 @@ SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="..
 # Graph of historical diversion (DiversionHistorical), from input (no H, B, etc.).
 #
 # Read the single time series
-ReadStateMod(InputFile="${WebInputDiversionsFolder}/3600507.StateMod.DivTotal.Month.stm",Alias="%L-DiversionHistorical-Month")
+ReadStateMod(InputFile="${WebInputDiversionsFolder}/3600507.StateMod.DiversionHistorical.Month.stm",Alias="%L-DiversionHistorical-Month")
 #
 # Process the graph using the previously-saved tsp file and output full configuration as json
 # - it is required to actually generate a product to fill out properties, so create a png
@@ -32,7 +32,7 @@ TextEdit(InputFile="graphs\diversion-DiversionHistorical-graph-config.json",Sear
 # Graph of diversion demand (DiversionDemand), from input H.
 #
 # Read the single time series
-ReadStateMod(InputFile="${WebInputDiversionsFolder}/3600507.StateMod.Demand.Month.H.stm",Alias="%L-DiversionDemand-Month")
+ReadStateMod(InputFile="${WebInputDiversionsFolder}/3600507.StateMod.DiversionDemand.Month.H.stm",Alias="%L-DiversionDemand-Month")
 #
 # Process the graph using the previously-saved tsp file and output full configuration as json
 # - it is required to actually generate a product to fill out properties, so create a png

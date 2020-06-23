@@ -17,5 +17,5 @@ LayoutYPercent = ""
 
 [Data 1.1]
 
-TSID = "3600507...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/diversions/3600507.StateMod.DivTotal.Month.stm"
+TSID = "3600507...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/diversions/3600507.StateMod.DiversionHistorical.Month.stm"
 TSAlias = "3600507-DiversionHistorical-Month"
