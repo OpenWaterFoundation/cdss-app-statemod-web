@@ -120,7 +120,7 @@
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:StateModStationId}-DiversionDemand-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.DiversionDemand.Month~StateMod~/data-ts/input/diversions/${featureAttribute:StateModStationId}.StateMod.DiversionDemand.Month.stm",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.DiversionDemand.Month.H~StateMod~/data-ts/input/diversions/${featureAttribute:StateModStationId}.StateMod.DiversionDemand.Month.H.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

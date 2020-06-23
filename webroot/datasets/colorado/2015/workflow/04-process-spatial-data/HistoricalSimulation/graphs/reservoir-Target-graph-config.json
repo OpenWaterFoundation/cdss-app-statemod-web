@@ -119,8 +119,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:StateModStationId}-Target-Min-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Target-Min.Month~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.Target-Min.Month.stm",
+          "TSAlias" : "${featureAttribute:StateModStationId}-TargetMin-Month",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.TargetMin.Month.H2~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.TargetMin.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -137,8 +137,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "${featureAttribute:StateModStationId}-Target-Max-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Target-Min.Month~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.Target-Min.Month.stm",
+          "TSAlias" : "${featureAttribute:StateModStationId}-TargetMax-Month",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.TargetMax.Month.H2~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.TargetMax.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

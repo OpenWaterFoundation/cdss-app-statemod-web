@@ -120,7 +120,7 @@
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:StateModStationId}-Available_Flow-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Streamflow.Month~StateMod~/data-ts/input/stream/${featureAttribute:StateModStationId}.StateMod.Available_Flow.Month.stm",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.Streamflow.Month~StateMod~/data-ts/output/b43/${featureAttribute:StateModStationId}.StateMod.Available_Flow.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }

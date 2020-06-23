@@ -10,26 +10,30 @@ SetProperty(PropertyName="WebInputReservoirsFolder",PropertyType=String,Property
 SetProperty(PropertyName="WebOutputFolder",PropertyType=String,PropertyValue="../../../web/data-ts/output")
 #
 #================================================
-# Graph of reservoir target minimum (Target-Min), from input (H2).
+# Graph of reservoir target minimum (TargetMin), from input (H2).
+# - use TargetMin and not Target-Min because the later might be used generally as a modifier for statistics
 #
 # Read the single time series
-ReadStateMod(InputFile="${WebInputReservoirsFolder}/3603543.StateMod.Target-Min.Month.H2.stm",Alias="%L-Target-Min-Month")
-ReadStateMod(InputFile="${WebInputReservoirsFolder}/3603543.StateMod.Target-Max.Month.H2.stm",Alias="%L-Target-Max-Month")
+ReadStateMod(InputFile="${WebInputReservoirsFolder}/3603543.StateMod.TargetMin.Month.H2.stm",Alias="%L-TargetMin-Month")
+ReadStateMod(InputFile="${WebInputReservoirsFolder}/3603543.StateMod.TargetMax.Month.H2.stm",Alias="%L-TargetMax-Month")
 #
 # Process the graph using the previously-saved tsp file and output full configuration as json
 # - it is required to actually generate a product to fill out properties, so create a png
 ProcessTSProduct(TSProductFile="graphs/reservoir-Target-graph-config.tsp",View=False,OutputFile="graphs/reservoir-Target-graph-prototype.png",OutputProductFile="graphs/reservoir-Target-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\reservoir-Target-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\reservoir-Target-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-Target-Min",ReplaceWith="\$\{featureAttribute:StateModStationId}-Target-Min",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Target-Min\.Month~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.Target-Min\.Month\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-Target-graph-config.json")
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-TargetMin",ReplaceWith="\$\{featureAttribute:StateModStationId}-TargetMin",OutputFile="graphs\reservoir-Target-graph-config.json")
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
 #
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-Target-Max",ReplaceWith="\$\{featureAttribute:StateModStationId}-Target-Max",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Target-Max\.Month~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.Target-Max\.Month\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
+# TODO smalers 2020-06-22 problem is that there is no way to match the data type so above sets all to TargetMin and minimum is used twice
+# - have to manually edit the output each time
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-TargetMax",ReplaceWith="\$\{featureAttribute:StateModStationId}-TargetMax",OutputFile="graphs\reservoir-Target-graph-config.json")
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
 #
 #================================================
 # Graph of reservoir end of month (EOM), from input (no H, H2, B, etc.).
@@ -42,12 +46,14 @@ ReadStateMod(InputFile="${WebInputReservoirsFolder}/3603543.StateMod.EOM.Month.s
 ProcessTSProduct(TSProductFile="graphs/reservoir-EOM-graph-config.tsp",View=False,OutputFile="graphs/reservoir-EOM-graph-prototype.png",OutputProductFile="graphs/reservoir-EOM-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\reservoir-EOM-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\reservoir-EOM-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-EOM-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-EOM-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="3603543-EOM",ReplaceWith="\$\{featureAttribute:StateModStationId}-EOM",OutputFile="graphs\reservoir-EOM-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.EOM\.Month~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.EOM\.Month\.stm",OutputFile="graphs\reservoir-EOM-graph-config.json")
+Message(Message="Remember to manually edit the graphs/reservoir-Target-graph-config.json to use TargetMax.  Currently can't automate.",CommandStatus=WARNING)
 /*
 #
 #================================================
@@ -61,10 +67,11 @@ ReadStateMod(InputFile="${WebOutputFolder}/b43/3603543.StateMod.Available_Flow.M
 ProcessTSProduct(TSProductFile="graphs/reservoir-Available_Flow-graph-config.tsp",View=False,OutputFile="graphs/reservoir-Available_Flow-graph-prototype.png",OutputProductFile="graphs/reservoir-Available_Flow-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config.json",SearchFor="3603543-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Available_Flow-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month~StateMod~/data-ts/output/b43/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2\.stm",OutputFile="graphs\reservoir-Available_Flow-graph-config.json")
 */

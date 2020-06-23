@@ -20,10 +20,11 @@ ReadStateMod(InputFile="${WebInputStreamFolder}/09010500.StateMod.Streamflow.Mon
 ProcessTSProduct(TSProductFile="graphs/streamgage-historical-graph-config.tsp",View=False,OutputFile="graphs/streamgage-historical-graph-prototype.png",OutputProductFile="graphs/streamgage-historical-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\streamgage-historical-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\streamgage-historical-graph-config.json")
 TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:station_name}",OutputFile="graphs\streamgage-historical-graph-config.json")
-TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-historical-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-historical-graph-config.json")
 TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="09010500-Streamflow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Streamflow",OutputFile="graphs\streamgage-historical-graph-config.json")
 TextEdit(InputFile="graphs\streamgage-historical-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month\.stm",OutputFile="graphs\streamgage-historical-graph-config.json")
 #
@@ -39,10 +40,11 @@ ReadStateMod(InputFile="${WebInputStreamFolder}/09010500.StateMod.NaturalFlow.Mo
 ProcessTSProduct(TSProductFile="graphs/node-NaturalFlow-graph-config.tsp",View=False,OutputFile="graphs/node-NaturalFlow-graph-prototype.png",OutputProductFile="graphs/node-NaturalFlow-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\node-NaturalFlow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\node-NaturalFlow-graph-config.json")
 TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:station_name}",OutputFile="graphs\node-NaturalFlow-graph-config.json")
-TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\node-NaturalFlow-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\node-NaturalFlow-graph-config.json")
 TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="09010500-NaturalFlow",ReplaceWith="\$\{featureAttribute:StateModStationId}-NaturalFlow",OutputFile="graphs\node-NaturalFlow-graph-config.json")
 TextEdit(InputFile="graphs\node-NaturalFlow-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.NaturalFlow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.NaturalFlow\.Month\.stm",OutputFile="graphs\node-NaturalFlow-graph-config.json")
 #
@@ -57,9 +59,10 @@ ReadStateMod(InputFile="${WebOutputFolder}/b43/09010500.StateMod.Available_Flow.
 ProcessTSProduct(TSProductFile="graphs/streamgage-Available_Flow-graph-config.tsp",View=False,OutputFile="graphs/streamgage-Available_Flow-graph-prototype.png",OutputProductFile="graphs/streamgage-Available_Flow-graph-config-prototype.json",OutputProductFormat="JSON")
 #
 # Convert the prototype graph into a template by replacing strings with ${Property} notation
-# - always convert to Linux-like line endings if processing full lines to simplify processing
 TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:station_name}",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
-TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+# Always convert to Linux-like line endings if processing full lines to simplify processing
+# - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
+#TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="09010500-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
-TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month~StateMod~/data-ts/input/stream/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.stm",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
+TextEdit(InputFile="graphs\streamgage-Available_Flow-graph-config.json",SearchFor="09010500.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Streamflow\.Month~StateMod~/data-ts/output/b43/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2\.stm",OutputFile="graphs\streamgage-Available_Flow-graph-config.json")
