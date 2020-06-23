@@ -17,10 +17,10 @@ LayoutYPercent = ""
 
 [Data 1.1]
 
-TSID = "3603543...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/reservoirs/3603543.StateMod.Target-Min.Month.H2.stm"
-TSAlias = "3603543-Target-Min-Month"
+TSID = "3603543...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/reservoirs/3603543.StateMod.TargetMin.Month.H2.stm"
+TSAlias = "3603543-TargetMin-Month"
 
 [Data 1.2]
 
-TSID = "3603543...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/reservoirs/3603543.StateMod.Target-Max.Month.H2.stm"
-TSAlias = "3603543-Target-Max-Month"
+TSID = "3603543...MONTH~StateMod~C:\Users\sam\cdss-dev\StateMod-Web\git-repos\cdss-app-statemod-web\webroot\datasets\colorado\2015\web/data-ts/input/reservoirs/3603543.StateMod.TargetMax.Month.H2.stm"
+TSAlias = "3603543-TargetMax-Month"

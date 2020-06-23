@@ -119,8 +119,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "3603543-Target-Min-Month",
-          "TSID" : "3603543...MONTH~StateMod~C:\\Users\\sam\\cdss-dev\\StateMod-Web\\git-repos\\cdss-app-statemod-web\\webroot\\datasets\\colorado\\2015\\web/data-ts/input/reservoirs/3603543.StateMod.Target-Min.Month.H2.stm",
+          "TSAlias" : "3603543-TargetMin-Month",
+          "TSID" : "3603543...MONTH~StateMod~C:\\Users\\sam\\cdss-dev\\StateMod-Web\\git-repos\\cdss-app-statemod-web\\webroot\\datasets\\colorado\\2015\\web/data-ts/input/reservoirs/3603543.StateMod.TargetMin.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
@@ -137,8 +137,8 @@
           "LineWidth" : "1",
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
-          "TSAlias" : "3603543-Target-Max-Month",
-          "TSID" : "3603543...MONTH~StateMod~C:\\Users\\sam\\cdss-dev\\StateMod-Web\\git-repos\\cdss-app-statemod-web\\webroot\\datasets\\colorado\\2015\\web/data-ts/input/reservoirs/3603543.StateMod.Target-Max.Month.H2.stm",
+          "TSAlias" : "3603543-TargetMax-Month",
+          "TSID" : "3603543...MONTH~StateMod~C:\\Users\\sam\\cdss-dev\\StateMod-Web\\git-repos\\cdss-app-statemod-web\\webroot\\datasets\\colorado\\2015\\web/data-ts/input/reservoirs/3603543.StateMod.TargetMax.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
