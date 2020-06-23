@@ -138,7 +138,7 @@
           "SymbolSize" : "0",
           "SymbolStyle" : "None",
           "TSAlias" : "${featureAttribute:StateModStationId}-TargetMax-Month",
-          "TSID" : "${featureAttribute:StateModStationId}.StateMod.TargetMax.Month.H2~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.TargetMax.Month.H2.stm",
+          "TSID" : "${featureAttribute:StateModStationId}.StateMod.TargetMin.Month.H2~StateMod~/data-ts/input/reservoirs/${featureAttribute:StateModStationId}.StateMod.TargetMin.Month.H2.stm",
           "XAxis" : "Bottom",
           "YAxis" : "Left"
         }
