@@ -28,12 +28,9 @@ TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="Statio
 # - TODO smalers 2020-06-22 this is actually not needed since not replacing entire line
 #TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-Target-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-TargetMin",ReplaceWith="\$\{featureAttribute:StateModStationId}-TargetMin",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
-#
-# TODO smalers 2020-06-22 problem is that there is no way to match the data type so above sets all to TargetMin and minimum is used twice
-# - have to manually edit the output each time
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*TargetMin\.Month\.H2\.stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMin\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543-TargetMax",ReplaceWith="\$\{featureAttribute:StateModStationId}-TargetMax",OutputFile="graphs\reservoir-Target-graph-config.json")
-TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
+TextEdit(InputFile="graphs\reservoir-Target-graph-config.json",SearchFor="3603543.*TargetMax\.Month\.H2\.stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.TargetMax\.Month\.H2\.stm",OutputFile="graphs\reservoir-Target-graph-config.json")
 #
 #================================================
 # Graph of reservoir end of month (EOM), from input (no H, H2, B, etc.).
@@ -53,7 +50,6 @@ TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="StationNa
 #TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\reservoir-EOM-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="3603543-EOM",ReplaceWith="\$\{featureAttribute:StateModStationId}-EOM",OutputFile="graphs\reservoir-EOM-graph-config.json")
 TextEdit(InputFile="graphs\reservoir-EOM-graph-config.json",SearchFor="3603543.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.EOM\.Month~StateMod~/data-ts/input/reservoirs/\$\{featureAttribute:StateModStationId}\.StateMod\.EOM\.Month\.stm",OutputFile="graphs\reservoir-EOM-graph-config.json")
-Message(Message="Remember to manually edit the graphs/reservoir-Target-graph-config.json to use TargetMax.  Currently can't automate.",CommandStatus=WARNING)
 /*
 #
 #================================================

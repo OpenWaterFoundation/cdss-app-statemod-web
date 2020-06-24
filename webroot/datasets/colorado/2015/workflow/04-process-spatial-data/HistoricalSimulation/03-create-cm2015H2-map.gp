@@ -89,6 +89,7 @@ CopyFile(SourceFile="graphs/diversion-popup-config.json",DestinationFile="${MapF
 CopyFile(SourceFile="graphs/diversion-DiversionDemand-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionDemand-graph-config.json")
 CopyFile(SourceFile="graphs/diversion-DiversionHistorical-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-DiversionHistorical-graph-config.json")
 CopyFile(SourceFile="graphs/diversion-Available_Flow-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-Available_Flow-graph-config.json")
+CopyFile(SourceFile="graphs/diversion-combination-graph-config.json",DestinationFile="${MapFolder}/graphs/diversion-combination-graph-config.json")
 # ... reservoirs
 CopyFile(SourceFile="graphs/reservoir-popup-config.json",DestinationFile="${MapFolder}/graphs/reservoir-popup-config.json")
 CopyFile(SourceFile="graphs/reservoir-Target-graph-config.json",DestinationFile="${MapFolder}/graphs/reservoir-Target-graph-config.json")
