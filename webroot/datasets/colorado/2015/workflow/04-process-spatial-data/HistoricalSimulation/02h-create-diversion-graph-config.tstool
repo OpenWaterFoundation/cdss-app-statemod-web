@@ -65,3 +65,24 @@ TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor
 #TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="\r\n",ReplaceWith="\n",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="3600507-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
 TextEdit(InputFile="graphs\diversion-Available_Flow-graph-config.json",SearchFor="3600507.*stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2~StateMod~/data-ts/output/b43/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2\.stm",OutputFile="graphs\diversion-Available_Flow-graph-config.json")
+#
+#================================================
+# Combination graph of diversion data combining all time series
+#
+# Time series were read above.
+#
+# Process the graph using the previously-saved tsp file and output full configuration as json
+# - it is required to actually generate a product to fill out properties, so create a png
+ProcessTSProduct(TSProductFile="graphs/diversion-combination-graph-config.tsp",View=False,OutputFile="graphs/diversion-combination-graph-prototype.png",OutputProductFile="graphs/diversion-combination-graph-config-prototype.json",OutputProductFormat="JSON")
+#
+# Convert the prototype graph into a template by replacing strings with ${Property} notation
+TextEdit(InputFile="graphs\diversion-combination-graph-config-prototype.json",SearchFor="StationId",ReplaceWith="\$\{featureAttribute:StateModStationId}",OutputFile="graphs\diversion-combination-graph-config.json")
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="StationName",ReplaceWith="\$\{featureAttribute:str_name}",OutputFile="graphs\diversion-combination-graph-config.json")
+# Update TSAlias
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507-Available_Flow",ReplaceWith="\$\{featureAttribute:StateModStationId}-Available_Flow",OutputFile="graphs\diversion-combination-graph-config.json")
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507-DiversionDemand",ReplaceWith="\$\{featureAttribute:StateModStationId}-DiversionDemand",OutputFile="graphs\diversion-combination-graph-config.json")
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507-DiversionHistorical",ReplaceWith="\$\{featureAttribute:StateModStationId}-DiversionHistorical",OutputFile="graphs\diversion-combination-graph-config.json")
+# Update TSID
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507.*Available_Flow\.Month\.H2\.stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2~StateMod~/data-ts/output/b43/\$\{featureAttribute:StateModStationId}\.StateMod\.Available_Flow\.Month\.H2\.stm",OutputFile="graphs\diversion-combination-graph-config.json")
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507.*DiversionDemand\.Month\.H\.stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionDemand\.Month\.H~StateMod~/data-ts/input/diversions/\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionDemand\.Month\.H\.stm",OutputFile="graphs\diversion-combination-graph-config.json")
+TextEdit(InputFile="graphs\diversion-combination-graph-config.json",SearchFor="3600507.*DiversionHistorical\.Month\.stm",ReplaceWith="\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionHistorical\.Month~StateMod~/data-ts/input/diversions/\$\{featureAttribute:StateModStationId}\.StateMod\.DiversionHistorical\.Month\.stm",OutputFile="graphs\diversion-combination-graph-config.json")

@@ -22,6 +22,11 @@
         "action" : "graph",
         "label" : "Available Flow",
         "productPath" : "graphs/diversion-Available_Flow-graph-config.json"
+      },
+      {
+        "action" : "graph",
+        "label" : "Combination",
+        "productPath" : "graphs/diversion-combination-graph-config.json"
       }
   ]
 }
