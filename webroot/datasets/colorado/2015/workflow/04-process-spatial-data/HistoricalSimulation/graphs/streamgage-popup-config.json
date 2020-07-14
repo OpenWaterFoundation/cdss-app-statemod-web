@@ -9,14 +9,16 @@
   },
   "actions": [
       {
-        "action" : "graph",
         "label" : "Available Flow",
-        "productPath" : "graphs/streamgage-Available_Flow-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/streamgage-Available_Flow-graph-config.json"
       },
       {
-        "action" : "graph",
         "label" : "Historical",
-        "productPath" : "graphs/streamgage-historical-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/streamgage-historical-graph-config.json"
       }
   ]
 }

@@ -332,6 +332,8 @@ runInteractive() {
     echo ""
     echo "Output time series.    hb43.  Copy ${datasetName} b43 ts files."
     echo "                       hb44.  Copy ${datasetName} b44 ts files."
+    echo "                       hxdd.  Copy ${datasetName} xdd ts files."
+    echo "                       hxre.  Copy ${datasetName} xre ts files."
     echo ""
     read -p "Enter command: " answer
 
@@ -389,6 +391,10 @@ runInteractive() {
       copySimulationOutputTs ${datasetName} b43
     elif [ "${answer}" = "hb44" ]; then
       copySimulationOutputTs ${datasetName} b44
+    elif [ "${answer}" = "hxdd" ]; then
+      copySimulationOutputTs ${datasetName} xdd
+    elif [ "${answer}" = "hxre" ]; then
+      copySimulationOutputTs ${datasetName} xre
     fi
 
   done

@@ -163,9 +163,12 @@ echo x   1.  baseflow    Run the baseflow option using %dataset%.rsp
 echo x   2.  msm         Run the Mixed Station Model to estimate missing streamflow
 echo x   3.  baseflowx   Run the baseflowx option using %dataset%x.rsp
 echo ACTIVE for cloud publishing (to run simulations and generate full output):
-echo     4a. simh        Run the simulation for the H (historical) dataset and generate reports.
-echo     4b. simh2       Run the simulation for the H2 (historical calibration) dataset and generate reports.
-echo     5.  simb        Run the simulation for the B (baseline) dataset and generate reports.
+echo     4a. simh        Run the simulation for the H (historical) dataset and generate standard reports.
+echo     4b. simh2       Run the simulation for the H2 (historical calibration) dataset and generate standard reports.
+echo     5.  simb        Run the simulation for the B (baseline) dataset and generate standard reports.
+echo.
+echo         repwbh2     Run the water balance report for the H2 dataset.
+echo         repwbb      Run the water balance report for the B dataset.
 echo.
 echo     s   Run all simulation steps (4a, 4b, 5)
 echo     q   Quit
@@ -185,6 +188,8 @@ if "%answer%"=="4b" call :runStateMod %datasetName%H2.rsp -sim
 if "%answer%"=="simh2" call :runStateMod %datasetName%H2.rsp -sim
 if "%answer%"=="4" call :runStateMod %datasetName%B.rsp -sim
 if "%answer%"=="simb" call :runStateMod %datasetName%B.rsp -sim
+if "%answer%"=="repwbh2" call :runStateMod %datasetName%H2.rsp -report -xwb
+if "%answer%"=="repwbb" call :runStateMod %datasetName%B.rsp -report -xwb
 if "%answer%"=="s" call :runBatch
 if "%answer%"=="q" goto exit0
 rem Anything else that was entered is ignored.
@@ -201,12 +206,15 @@ rem - second function argument is the response file name (file only, no path)
 rem - it is assumed the current folder is the StateMod dataset folder
 set rspFile=%1%
 set runArg=%2%
-echo Running StateMod %rspFile% %runArg%
+set runArg2=%3%
+rem Change to StateMod folder
+cd %stateModFolder%
+echo Running StateMod %rspFile% %runArg% %runArg2%
 time /t
-%statemodExe% %rspFile% %runArg%
+%statemodExe% %rspFile% %runArg% %runArg2%
 set errorLevel2=%ERRORLEVEL%
 time /t
-echo ...finished running StateMod %rspFile% %runArg%
+echo ...finished running StateMod %rspFile% %runArg% %runArg2%
 exit /b %errorLevel2%
 rem End of :runStateMod
 

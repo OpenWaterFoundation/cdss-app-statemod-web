@@ -9,14 +9,21 @@
   },
   "actions": [
       {
-        "action" : "graph",
         "label" : "Targets",
-        "productPath" : "graphs/reservoir-Target-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/reservoir-Target-graph-config.json"
       },
       {
-        "action" : "graph",
         "label" : "EOM Storage",
-        "productPath" : "graphs/reservoir-EOM-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/reservoir-EOM-graph-config.json"
+      },
+      {
+        "label" : "Reservoir Summary",
+        "action" : "displayText",
+        "resourcePath" : "/data-ts/output/xre/${featureAttribute:StateModStationId}.H2.xre"
       }
   ]
 }

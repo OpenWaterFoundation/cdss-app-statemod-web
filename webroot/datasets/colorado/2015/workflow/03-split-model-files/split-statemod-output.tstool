@@ -1,9 +1,9 @@
 #
-# Split StateMod output files time series into separate files, one time series per file.
+# Split StateMod output time series files into separate files, one time series per file.
 # - only output file parameters of interest to general users are split out (not all detailed parameters)
 # - more parameters can be added over time if they are of interest
 #
-# Set folders as properties to simplfify commands.
+# Set folders as properties to simplify commands.
 # Location of StateMod files.
 SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
 # Name of the dataset, which is the base name for data files.

@@ -9,24 +9,33 @@
   },
   "actions": [
       {
-        "action" : "graph",
         "label" : "Demand",
-        "productPath" : "graphs/diversion-DiversionDemand-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/diversion-DiversionDemand-graph-config.json"
       },
       {
-        "action" : "graph",
         "label" : "Historical",
-        "productPath" : "graphs/diversion-DiversionHistorical-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/diversion-DiversionHistorical-graph-config.json"
       },
       {
-        "action" : "graph",
         "label" : "Available Flow",
-        "productPath" : "graphs/diversion-Available_Flow-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/diversion-Available_Flow-graph-config.json"
       },
       {
-        "action" : "graph",
         "label" : "Combination",
-        "productPath" : "graphs/diversion-combination-graph-config.json"
+        "action" : "displayTimeSeries",
+        "chartPackage" : "ChartJS",
+        "resourcePath" : "graphs/diversion-combination-graph-config.json"
+      },
+      {
+        "label" : "Diversion Summary",
+        "action" : "displayText",
+        "resourcePath" : "/data-ts/output/xdd/${featureAttribute:StateModStationId}.H2.xdd"
       }
   ]
 }

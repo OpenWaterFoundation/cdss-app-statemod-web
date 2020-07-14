@@ -1,0 +1,22 @@
+#
+# Split StateMod report files into separate files, one node's section per file.
+# - the report files are associated with H2 and B
+#
+# Set folders as properties to simplify commands.
+# Location of StateMod files.
+SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
+# Name of the dataset, which is the base name for data files.
+SetProperty(PropertyName="DatasetName",PropertyType=String,PropertyValue="cm2015")
+#
+#====================================
+# xdd files
+#
+SetProperty(PropertyName="WebOutputXddFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/xdd")
+SplitStateModReport(ReportFile="${StateModFolder}/${DatasetName}H2.xdd",OutputFolder="${WebOutputXddFolder}",OutputFile="NODEID.H2.xdd",IfOutputFolderDoesNotExist=Create)
+SplitStateModReport(ReportFile="${StateModFolder}/${DatasetName}B.xdd",OutputFolder="${WebOutputXddFolder}",OutputFile="NODEID.B.xdd",IfOutputFolderDoesNotExist=Create)
+#====================================
+# xre files
+#
+SetProperty(PropertyName="WebOutputXreFolder",PropertyType=String,PropertyValue="../../web/data-ts/output/xre")
+SplitStateModReport(ReportFile="${StateModFolder}/${DatasetName}H2.xre",OutputFolder="${WebOutputXreFolder}",OutputFile="NODEID.H2.xre",IfOutputFolderDoesNotExist=Create)
+SplitStateModReport(ReportFile="${StateModFolder}/${DatasetName}B.xre",OutputFolder="${WebOutputXreFolder}",OutputFile="NODEID.B.xre",IfOutputFolderDoesNotExist=Create)

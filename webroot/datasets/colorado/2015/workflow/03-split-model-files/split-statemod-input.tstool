@@ -1,11 +1,11 @@
 #
-# Split StateMod input files time series into separate files, one time series per file.
+# Split StateMod input time series files into separate files, one time series per file.
 # - some historical run files have H modifier and some have H2
 # - because only recently-read time series are output, Free() is used after each file is processed,
 #   otherwise larger and larger list of time series will be output
 # - set OutputTimeSeries=false to not Free, for example to be able to view time series
 #
-# Set folders as properties to simplfify commands.
+# Set folders as properties to simplify commands.
 # Location of StateMod files.
 SetProperty(PropertyName="StateModFolder",PropertyType=String,PropertyValue="../../StateMod")
 # Name of the dataset, which is the base name for data files.
