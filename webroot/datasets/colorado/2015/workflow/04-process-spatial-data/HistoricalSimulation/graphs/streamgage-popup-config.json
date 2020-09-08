@@ -11,13 +11,11 @@
       {
         "label" : "Available Flow",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/streamgage-Available_Flow-graph-config.json"
       },
       {
         "label" : "Historical",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/streamgage-historical-graph-config.json"
       }
   ]
