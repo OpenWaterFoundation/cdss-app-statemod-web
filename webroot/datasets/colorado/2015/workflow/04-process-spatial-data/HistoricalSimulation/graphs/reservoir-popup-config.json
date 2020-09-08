@@ -11,13 +11,11 @@
       {
         "label" : "Targets",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/reservoir-Target-graph-config.json"
       },
       {
         "label" : "EOM Storage",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/reservoir-EOM-graph-config.json"
       },
       {

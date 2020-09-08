@@ -11,25 +11,21 @@
       {
         "label" : "Demand",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/diversion-DiversionDemand-graph-config.json"
       },
       {
         "label" : "Historical",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/diversion-DiversionHistorical-graph-config.json"
       },
       {
         "label" : "Available Flow",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/diversion-Available_Flow-graph-config.json"
       },
       {
         "label" : "Combination",
         "action" : "displayTimeSeries",
-        "chartPackage" : "ChartJS",
         "resourcePath" : "graphs/diversion-combination-graph-config.json"
       },
       {
