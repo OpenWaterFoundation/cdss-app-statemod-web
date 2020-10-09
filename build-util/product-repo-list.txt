@@ -3,5 +3,6 @@
 cdss-app-statemod-web
 # The InfoMapper is included here for now because the repositories are under OWF GitHub
 # - TODO smalers 2020-06-07 will need to split into separate product files once this repo is moved to OpenCDSS
-# - See the TriLynx work with TSTool plugin for example of how to do that
-owf-app-info-mapper-ng
+# - See the TriLynx work with TSTool plugin for example of how to do that.
+# - OR, enhance the utility to handle full repository paths in different accounts.
+owf-app-infomapper-ng

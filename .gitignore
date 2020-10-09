@@ -58,6 +58,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/CoDwrWaterDistricts/*.json
 
@@ -67,6 +68,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/InstreamFlowReaches/*.json
 
@@ -76,6 +78,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/IrrigatedLands/*.json
 
@@ -85,6 +88,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/SupportingData/StreamReaches/*.json
 
@@ -94,6 +98,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/HistoricalSimulation/*.json
 
@@ -103,6 +108,7 @@
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/*
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/README.md
 !/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/*.csv
+!/webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/layers/*.md
 # Dynamic map configurations
 /webroot/datasets/colorado/2015/workflow/04-process-spatial-data/BaselineSimulation/*.json
 

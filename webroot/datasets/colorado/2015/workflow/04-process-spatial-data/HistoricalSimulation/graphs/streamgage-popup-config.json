@@ -11,12 +11,14 @@
       {
         "label" : "Available Flow",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/streamgage-Available_Flow-graph-config.json"
+        "resourcePath" : "graphs/streamgage-Available_Flow-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-Available_Flow.csv"
       },
       {
         "label" : "Historical",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/streamgage-historical-graph-config.json"
+        "resourcePath" : "graphs/streamgage-historical-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-Streamflow.csv"
       }
   ]
 }

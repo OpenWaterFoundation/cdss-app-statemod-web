@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copy  files to 'info-mapper/src/assets/app' folder.
+# Copy  files to 'infomapper/src/assets/app' folder.
 # Brute force way to provide content to InfoMapper and version control.
 # Folder for this script is similar to:
 #   C:/Users/user/cdss-dev/StateMod-Web/git-repos/cdss-app-statemod-web/webroot/datasets/colorado/2015/web
@@ -77,6 +77,7 @@ checkDataTsOutputFolder() {
 # - application configuration
 # - content-pages
 # - img
+# - system
 copyMainConfig() {
   # Make sure that folders exist
   if [ ! -d "${appFolder}" ]; then
@@ -107,6 +108,15 @@ copyMainConfig() {
   else
     cp -r${verboseOption} ${scriptFolder}/img ${appFolder}
   fi
+
+  # System
+  sourceFolder="${scriptFolder}/system"
+  if [ ! -d "${sourceFolder}" ]; then
+    echo "${function}, source folder does not exist:  ${sourceFolder}"
+  else
+    cp -r${verboseOption} ${scriptFolder}/system ${appFolder}
+  fi
+
   # Output the following regardless of whether verbose or not.
   echo "Copied main configuration files."
 
@@ -366,6 +376,7 @@ runInteractive() {
       copyDataMapsSupportingData StreamReaches
 
     # Simulation maps
+    # - the second parameter indicates whether historical or baseline
 
     elif [ "${answer}" = "hmap" ]; then
       copySimulationMaps cm2015 H2
@@ -419,8 +430,8 @@ datasetsFolder=$(dirname $datasetFolder)
 webrootFolder=$(dirname $datasetsFolder)
 repoFolder=$(dirname $webrootFolder)
 gitReposFolder=$(dirname $repoFolder)
-infoMapperRepoFolder=${gitReposFolder}/owf-app-info-mapper-ng
-infoMapperFolder=${infoMapperRepoFolder}/info-mapper
+infoMapperRepoFolder=${gitReposFolder}/owf-app-infomapper-ng
+infoMapperFolder=${infoMapperRepoFolder}/infomapper
 appFolder=${infoMapperFolder}/src/assets/app
 
 echo "Folders for application:"

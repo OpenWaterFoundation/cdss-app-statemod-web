@@ -5,8 +5,6 @@ This website provides a simple map-based interface to Colorado's Decision Suppor
 water allocation model `cm2015` dataset for the StateMod software.
 This website allows viewing the model input and output without having to download the dataset and software and run the model.
 
-##### **Avoid refreshing the page because that will reload the application.  Use right-click or Ctrl-click to open links in a new tab.  Otherwise, navigating "back" will cause the web application to reload each time this page is refreshed.** #####
-
 The information on this website was created as follows:
 
 1. The latest `cm2015` dataset was downloaded from the [CDSS website](https://www.colorado.gov/pacific/cdss/surface-water-statemod).
@@ -24,4 +22,4 @@ for detailed information about the model (**Warning:  PDF can be slow to downloa
 
 See the ***Resources / About this Project*** menu for details about project implementation.
 
-##### **This website is under development.  Disabled menus are an outline for features that are being phased in.** #####
+**This website is under development.  Disabled menus are an outline for features that are being phased in.**
