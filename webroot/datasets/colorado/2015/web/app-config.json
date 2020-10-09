@@ -2,7 +2,8 @@
   "title": "Upper Colorado Water Allocation Model",
   "homePage": "/content-pages/home.md",
   "favicon": "/img/co-logo-32x32.ico",
-  "version": "0.1.0 (2020-06-07)",
+  "dataUnitsPath": "/system/DATAUNIT",
+  "version": "0.2.0 (2020-09-07)",
   "mainMenu": [
     {
       "id": "SupportingData",
@@ -11,7 +12,7 @@
       "menus": [
         {
           "id": "codwr-waterdistricts",
-          "name": "CO DWR Division 5 Water Districts",
+          "name": "CO DWR Water Districts",
           "action": "displayMap",
           "mapProject" : "data-maps/SupportingData/CoDwrWaterDistricts/codwr-waterdistricts-map.json"
         },
@@ -109,6 +110,13 @@
           "enabled": "false",
           "action": "displayMap",
           "mapProject": "theNameOfTheMapProjectFile"
+        },
+        {
+          "id": "hist-data",
+          "name": "Data for Website",
+          "action": "contentPage",
+          "align": "right",
+          "markdownFile": "content-pages/hist-data.md"
         }
       ]
     },
@@ -121,7 +129,7 @@
           "id": "cm2015-baseline",
           "name": "Baseline (cm2015 B) Dataset Map",
           "action": "displayMap",
-          "mapProject": "data-maps/BaselineSimulation/cm2015B/cm2015-baseline-map.json"
+          "mapProject": "data-maps/BaselineSimulation/cm2015-baseline-map.json"
         }
       ]
     },

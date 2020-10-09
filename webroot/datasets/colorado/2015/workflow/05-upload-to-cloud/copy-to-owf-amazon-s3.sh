@@ -2,7 +2,7 @@
 (set -o igncr) 2>/dev/null && set -o igncr; # this comment is required
 # The above line ensures that the script can be run on Cygwin/Linux even with Windows CRNL
 #
-# Copy the staged Info Mapper website to the opencdss.openwaterfoundation.org website
+# Copy the staged InfoMapper website to the opencdss.openwaterfoundation.org website
 # - replace all the files on the web with local files
 # - must specify Amazon profile as argument to the script
 # - the script determines the version from the code and optionally uploads to "latest" version
@@ -34,7 +34,7 @@ buildDist() {
     # <head>...<base href=".">
     ngBuildHrefOpt="."
   elif [ "$hrefMode" = "path" ]; then
-    ngBuildHrefOpt="/info-mapper/"
+    ngBuildHrefOpt="/infomapper/"
   else
     logError ""
     logError "Unknown hrefMode=$hrefMode"
@@ -58,7 +58,18 @@ buildDist() {
   #   Solution:  https://stackoverflow.com/questions/56606789/angular-8-ng-build-throwing-mime-error-with-cordova
   indexFile="${infoMapperDistAppFolder}/index.html"
   logInfo "Updating mime type in: ${indexFile}"
-  sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
+  if [ -f "${indexFile}" ]; then
+    # Replace "module" with "text/javascript" so that Amazon S3 works.
+    sed -i 's/type="module"/type="text\/javascript"/g' ${indexFile}
+    # Additionally need to insert "defer" at the end of the main-es2015*.js item so it looks like:
+    #   <script src="main-es2015.afb0c8c9a69f82c651a0.js" type="text/javascript" defer>
+    sed -i 's/main-es2015.*" type="text\/javascript"/& defer/' ${indexFile}
+  else
+    logError "index.html file does not exist: ${indexFile}"
+    logError "Maybe the budget needs to be increased?"
+    # This tends to cause major issues so exit
+    exit 1
+  fi
 }
 
 # Check to make sure the Angular version is as expected
@@ -126,7 +137,7 @@ getUserLogin() {
 
 # Get the InfoMapper version and application version.
 # - the version is in the 'assets/config-app.json' file in format:  "version": "0.7.0.dev (2020-04-24)"
-# - the Info Mapper software version in 'assets/version.json' with format similar to above
+# - the InfoMapper software version in 'assets/version.json' with format similar to above
 getVersion() {
   # Application version
   # The following won't be correct until after update so use source
@@ -384,13 +395,13 @@ datasetsFolder=$(dirname $datasetFolder)
 webrootFolder=$(dirname $datasetsFolder)
 repoFolder=$(dirname $webrootFolder)
 gitReposFolder=$(dirname $repoFolder)
-infoMapperRepoFolder=${gitReposFolder}/owf-app-info-mapper-ng
-infoMapperMainFolder=${infoMapperRepoFolder}/info-mapper
+infoMapperRepoFolder=${gitReposFolder}/owf-app-infomapper-ng
+infoMapperMainFolder=${infoMapperRepoFolder}/infomapper
 infoMapperDistFolder="${infoMapperMainFolder}/dist"
 # TODO smalers 2020-04-20 is the app folder redundant?
 # - it is not copied to S3
-infoMapperDistAppFolder="${infoMapperDistFolder}/info-mapper"
-# ...end must match Info Mapper
+infoMapperDistAppFolder="${infoMapperDistFolder}/infomapper"
+# ...end must match InfoMapper
 programName=$(basename $0)
 programVersion="1.0.0"
 programVersionDate="2020-06-07"

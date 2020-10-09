@@ -11,22 +11,26 @@
       {
         "label" : "Demand",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/diversion-DiversionDemand-graph-config.json"
+        "resourcePath" : "graphs/diversion-DiversionDemand-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-DiversionDemand.csv"
       },
       {
         "label" : "Historical",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/diversion-DiversionHistorical-graph-config.json"
+        "resourcePath" : "graphs/diversion-DiversionHistorical-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-DiversionHistorical.csv"
       },
       {
         "label" : "Available Flow",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/diversion-Available_Flow-graph-config.json"
+        "resourcePath" : "graphs/diversion-Available_Flow-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-Available_Flow.csv"
       },
       {
         "label" : "Combination",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/diversion-combination-graph-config.json"
+        "resourcePath" : "graphs/diversion-combination-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-combination.csv"
       },
       {
         "label" : "Diversion Summary",

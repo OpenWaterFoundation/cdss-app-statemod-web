@@ -11,12 +11,14 @@
       {
         "label" : "Targets",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/reservoir-Target-graph-config.json"
+        "resourcePath" : "graphs/reservoir-Target-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-Target.csv"
       },
       {
         "label" : "EOM Storage",
         "action" : "displayTimeSeries",
-        "resourcePath" : "graphs/reservoir-EOM-graph-config.json"
+        "resourcePath" : "graphs/reservoir-EOM-graph-config.json",
+        "saveFile" : "${featureAttribute:StateModStationId}-EOM.csv"
       },
       {
         "label" : "Reservoir Summary",
