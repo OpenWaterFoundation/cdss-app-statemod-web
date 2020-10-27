@@ -72,12 +72,16 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="WaterDistrictsGroup",Name="CO 
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-division5.geojson",GeoLayerID="WaterDivisionLayer",Name="CO DWR Division 5",Description="Water Division 5 boundary from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDivisionLayer",GeoLayerViewID="WaterDivisionLayerView",Name="CO DWR Division 5",Description="Boundary for Division 5 from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDivisionLayerView",Name="Colorize divisions",Description="Symbol for the division",ClassificationAttribute="DIV",Properties="classificationFile:'layers/co-dwr-water-division5-classify-division.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-division5-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDivisionLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-division5-event-config.json")
 # = = = = = = = = = =
 # Water districts:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: WaterDistrictsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/co-dwr-water-districts-division5.geojson",GeoLayerID="WaterDistrictsLayer",Name="CO DWR Division 5 Water Districts",Description="Water District boundaries for Division 5 from the Colorado Division of Water Resources.")
 AddGeoLayerViewToGeoMap(GeoLayerID="WaterDistrictsLayer",GeoLayerViewID="WaterDistrictsLayerView",Name="CO DWR Water Districts",Description="Water District boundaries for Division 5 from the Colorado Division of Water Resources",InsertPosition="Top")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="WaterDistrictsLayerView",Name="Colorize districts",Description="Show each water district in a different color.",ClassificationAttribute="DISTRICT",Properties="classificationFile:'layers/co-dwr-water-districts-division5-classify-district.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictsLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/co-dwr-water-districts-division5-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="WaterDistrictsLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/co-dwr-water-districts-division5-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -87,6 +91,8 @@ CopyFile(SourceFile="codwr-waterdistricts-map.json",DestinationFile="${MapFolder
 #
 CopyFile(SourceFile="layers/co-dwr-water-districts-division5.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division5.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-districts-division5-classify-district.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division5-classify-district.csv")
+CopyFile(SourceFile="layers/co-dwr-water-districts-division5-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-districts-division5-event-config.json")
 #
 CopyFile(SourceFile="layers/co-dwr-water-division5.geojson",DestinationFile="${MapFolder}/layers/co-dwr-water-division5.geojson")
 CopyFile(SourceFile="layers/co-dwr-water-division5-classify-division.csv",DestinationFile="${MapFolder}/layers/co-dwr-water-division5-classify-division.csv")
+CopyFile(SourceFile="layers/co-dwr-water-division5-event-config.json",DestinationFile="${MapFolder}/layers/co-dwr-water-division5-event-config.json")

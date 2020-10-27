@@ -76,12 +76,16 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="IrrigatedLandsGroup",Name="Irr
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-1993.geojson",GeoLayerID="IrrigatedLands1993Layer",Name="Irrigated Lands",Description="Irrigated lands (1993) for Division 5 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands1993Layer",GeoLayerViewID="IrrigatedLands1993LayerView",Name="Irrigated Lands (1993)",Description="Irrigated lands (1993) from CDSS",InsertPosition="Top",Properties="selectedInitial:false")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands1993LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1993LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-1993-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands1993LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-1993-event-config.json")
 # = = = = = = = = = =
 # Irrigated lands (2015):  read layer and add to a layer view group.
 # GeoLayerViewGroupID: IrrigatedLandsGroup
 ReadGeoLayerFromGeoJSON(InputFile="layers/irrigated-lands-2015.geojson",GeoLayerID="IrrigatedLands2015Layer",Name="Irrigated Lands",Description="Irrigated lands (2015) for Division 5 from Colorado's Decision Support Systems.")
 AddGeoLayerViewToGeoMap(GeoLayerID="IrrigatedLands2015Layer",GeoLayerViewID="IrrigatedLands2015LayerView",Name="Irrigated Lands (2015)",Description="Irrigated lands (2015) from CDSS",InsertPosition="Top",Properties="selectedInitial:true")
 SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="IrrigatedLands2015LayerView",Name="Colorize irrigated lands by crop type",Description="Show each irrigated parcel colored by crop type.",ClassificationAttribute="CROP_TYPE",Properties="classificationType:'categorized',classificationFile:'layers/irrigated-lands-classify-croptype.csv'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2015LayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/irrigated-lands-2015-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="IrrigatedLands2015LayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/irrigated-lands-2015-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy layers to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -90,5 +94,9 @@ CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExi
 CopyFile(SourceFile="irrigated-lands-map.json",DestinationFile="${MapFolder}/irrigated-lands-map.json")
 #
 CopyFile(SourceFile="layers/irrigated-lands-1993.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-1993.geojson")
+CopyFile(SourceFile="layers/irrigated-lands-1993-event-config.json",DestinationFile="${MapFolder}/layers/irrigated-lands-1993-event-config.json")
+#
 CopyFile(SourceFile="layers/irrigated-lands-2015.geojson",DestinationFile="${MapFolder}/layers/irrigated-lands-2015.geojson")
+CopyFile(SourceFile="layers/irrigated-lands-2015-event-config.json",DestinationFile="${MapFolder}/layers/irrigated-lands-2015-event-config.json")
+#
 CopyFile(SourceFile="layers/irrigated-lands-classify-croptype.csv",DestinationFile="${MapFolder}/layers/irrigated-lands-classify-croptype.csv")

@@ -74,6 +74,8 @@ CopyFile(SourceFile="../SupportingData/InstreamFlowReaches/layers/instream-reach
 ReadGeoLayerFromGeoJSON(InputFile="layers/instream-reaches.geojson",GeoLayerID="InstreamReachesLayer",Name="Instream Flow Reaches",Description="Instream Flow Reaches")
 AddGeoLayerViewToGeoMap(GeoLayerID="InstreamReachesLayer",GeoLayerViewID="InstreamReachesLayerView",Name="Instream Flow Reaches",Description="Instream Flow Reaches from the CWCB",Properties="highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="InstreamReachesLayerView",Name="Instream Flow Reaches",Description="Instream Flow Reaches",Properties="color:#00ffff,weight:5")
+SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/instream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="InstreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/instream-reaches-event-config.json")
 # = = = = = = = = = =
 # Stream reaches:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamReachesGroup
@@ -82,6 +84,8 @@ ReadGeoLayerFromGeoJSON(InputFile="layers/stream-reaches.geojson",GeoLayerID="St
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamReachesLayer",GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream Reaches from DWR",InsertPosition="Top",Properties="highlightEnabled:true")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Stream Reaches",Properties="color:#6297f7")
 # SetGeoLayerViewCategorizedSymbol(GeoLayerViewID="StreamReachesLayerView",Name="Stream Reaches",Description="Show stream reaches is blue lines",ClassificationAttribute="county",Properties="classificationType:'SingleSymbol'")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamReachesLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/stream-reaches-event-config.json")
 # = = = = = = = = = =
 # Diversion stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: DiversionGroup
@@ -91,7 +95,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="DiversionGroup",Name="Diversio
 ReadGeoLayerFromGeoJSON(InputFile="layers/diversions.geojson",GeoLayerID="DiversionLayer",Name="Diversions",Description="Diversions, from StateMod dataset")
 AddGeoLayerViewToGeoMap(GeoLayerID="DiversionLayer",GeoLayerViewID="DiversionLayerView",Name="Diversions",Description="Diversions",Properties="docPath:'layers/diversions.md'")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="DiversionLayerView",Name="Diversions",Description="Diversions",Properties="symbolShape:Square,color:black,fillColor:black,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
-SetGeoLayerViewEventHandler(GeoLayerViewID="DiversionLayerView",EventType="click",Properties="popupConfigPath:graphs/diversion-popup-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DiversionLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/diversions-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="DiversionLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/diversions-event-config.json")
 # = = = = = = = = = =
 # Reservoir stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: ReservoirGroup
@@ -101,7 +106,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="ReservoirGroup",Name="Reservoi
 ReadGeoLayerFromGeoJSON(InputFile="layers/reservoirs.geojson",GeoLayerID="ReservoirLayer",Name="Reservoirs",Description="Reservoirs")
 AddGeoLayerViewToGeoMap(GeoLayerID="ReservoirLayer",GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs, from StateMod dataset",Properties="docPath:'layers/reservoirs.md'")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="ReservoirLayerView",Name="Reservoirs",Description="Reservoirs",Properties="symbolShape:Triangle-Up,color:black,fillColor:green,symbolSize:6,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
-SetGeoLayerViewEventHandler(GeoLayerViewID="ReservoirLayerView",EventType="click",Properties="popupConfigPath:graphs/reservoir-popup-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ReservoirLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/reservoirs-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="ReservoirLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/reservoirs-event-config.json")
 # = = = = = = = = = =
 # Streamflow stations:  read layer and add to a layer view group.
 # GeoLayerViewGroupID: StreamflowGroup
@@ -111,7 +117,8 @@ AddGeoLayerViewGroupToGeoMap(GeoLayerViewGroupID="StreamflowGroup",Name="Streamf
 ReadGeoLayerFromGeoJSON(InputFile="layers/streamgages.geojson",GeoLayerID="StreamflowLayer",Name="Streamflow Stations",Description="Streamflow Stations")
 AddGeoLayerViewToGeoMap(GeoLayerID="StreamflowLayer",GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations, from StateMod dataset",Properties="docPath:'layers/streamgages.md'")
 SetGeoLayerViewSingleSymbol(GeoLayerViewID="StreamflowLayerView",Name="Streamflow Stations",Description="Streamflow Stations",Properties="symbolShape:Circle,color:black,fillColor:red,symbolSize:4,sizeUnits:pixels,opacity:1.0,fillOpacity:1.0,weight:1.5")
-SetGeoLayerViewEventHandler(GeoLayerViewID="StreamflowLayerView",EventType="click",Properties="popupConfigPath:graphs/streamgage-popup-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamflowLayerView",EventType="hover",Name="Hover event",Description="Hover event configuration",Properties="eventConfigPath:layers/streamgages-event-config.json")
+SetGeoLayerViewEventHandler(GeoLayerViewID="StreamflowLayerView",EventType="click",Name="Click event",Description="Click event configuration",Properties="eventConfigPath:layers/streamgages-event-config.json")
 # = = = = = = = = = =
 # Write the map project file and copy files to the location needed by the web application.
 # - follow InfoMapper conventions
@@ -122,17 +129,22 @@ CopyFile(SourceFile="cm2015-historical-map.md",DestinationFile="${MapFolder}/cm2
 CreateFolder(Folder="${MapFolder}/layers",CreateParentFolders="True",IfFolderExists="Ignore")
 #
 CopyFile(SourceFile="layers/instream-reaches.geojson",DestinationFile="${MapFolder}/layers/instream-reaches.geojson")
+CopyFile(SourceFile="layers/instream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/instream-reaches-event-config.json")
 #
 CopyFile(SourceFile="layers/stream-reaches.geojson",DestinationFile="${MapFolder}/layers/stream-reaches.geojson")
+CopyFile(SourceFile="layers/stream-reaches-event-config.json",DestinationFile="${MapFolder}/layers/stream-reaches-event-config.json")
 #
 CopyFile(SourceFile="layers/streamgages.geojson",DestinationFile="${MapFolder}/layers/streamgages.geojson")
 CopyFile(SourceFile="layers/streamgages.md",DestinationFile="${MapFolder}/layers/streamgages.md")
+CopyFile(SourceFile="layers/streamgages-event-config.json",DestinationFile="${MapFolder}/layers/streamgages-event-config.json")
 #
 CopyFile(SourceFile="layers/reservoirs.geojson",DestinationFile="${MapFolder}/layers/reservoirs.geojson")
 CopyFile(SourceFile="layers/reservoirs.md",DestinationFile="${MapFolder}/layers/reservoirs.md")
+CopyFile(SourceFile="layers/reservoirs-event-config.json",DestinationFile="${MapFolder}/layers/reservoirs-event-config.json")
 #
 CopyFile(SourceFile="layers/diversions.geojson",DestinationFile="${MapFolder}/layers/diversions.geojson")
 CopyFile(SourceFile="layers/diversions.md",DestinationFile="${MapFolder}/layers/diversions.md")
+CopyFile(SourceFile="layers/diversions-event-config.json",DestinationFile="${MapFolder}/layers/diversions-event-config.json")
 # -----------------
 # Graphs
 CreateFolder(Folder="${MapFolder}/graphs",CreateParentFolders="True",IfFolderExists="Ignore")
